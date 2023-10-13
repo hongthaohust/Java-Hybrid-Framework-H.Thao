@@ -81,32 +81,33 @@ public class testcase_login {
 		Assert.assertTrue(driver.findElement(By.cssSelector(".ico-logout")).isDisplayed());
 	}
   
-	@Test
+	@Test(dependsOnMethods = "TC_02_login")
 	public void TC_03_myAccount() {
 		driver.findElement(By.cssSelector(".ico-account")).click();
 		
-		Assert.assertTrue(driver.findElement(By.id("gender-male")).isEnabled());
-		Assert.assertFalse(driver.findElement(By.id("gender-female")).isEnabled());
+		Assert.assertTrue(driver.findElement(By.id("gender-male")).isSelected());
+		Assert.assertFalse(driver.findElement(By.id("gender-female")).isSelected());
 		
-		Assert.assertEquals(driver.findElement(By.id("FirstName")).getText(), firstName);
-		Assert.assertEquals(driver.findElement(By.id("LastName")).getText(), lastName);
+		Assert.assertEquals(driver.findElement(By.id("FirstName")).getAttribute("value"), firstName);
+		Assert.assertEquals(driver.findElement(By.id("LastName")).getAttribute("value"), lastName);
 		
 		select = new Select(driver.findElement(By.name("DateOfBirthDay")));
-		Assert.assertEquals(select.getFirstSelectedOption(), "15");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), "15");
 		
 		select = new Select(driver.findElement(By.name("DateOfBirthMonth")));
-		Assert.assertEquals(select.getFirstSelectedOption(), "May");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), "May");
 		
 		select = new Select(driver.findElement(By.name("DateOfBirthYear")));
-		Assert.assertEquals(select.getFirstSelectedOption(), "1990");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), "1990");
 		
-		Assert.assertEquals(driver.findElement(By.id("Email")).getText(), email);
-		Assert.assertEquals(driver.findElement(By.id("Company")).getText(), companyName);
+		Assert.assertEquals(driver.findElement(By.id("Email")).getAttribute("value"), email);
+		Assert.assertEquals(driver.findElement(By.id("Company")).getAttribute("value"), companyName);
 		
 	}
 
 	@AfterClass
 	public void afterClass() {
+		driver.quit();
 	}
 	
 	public int random() {
