@@ -1,0 +1,16 @@
+* Nguyên tắc của lập trình hướng đối tượng: 4 nguyên tắc
+- Đóng gói - Encapsulation: Đóng gói các thuộc tính/phương thức lại vào 1 class để cho các Class khác kế thừa/ sử dụng + Che giấu sự khởi tạo của đối tượng
+	+ access modifier - Phạm vi truy cập: Cho phép 1 class khác có thể truy cập vào thuộc tính/ phương thức của class này hay không (phân quyền chức năng)
+- Kế thừa - Inheritance: Cho phép 1 class con có thể sử dụng thuộc tính/phương thức của Class cha chia sẻ cho nó (extend)
+- Đa hình - Polymorphism: Một hàm có thể có nhiều hành vi/ trạng thái khác nhau
+- Trừu tượng - Abstraction
+
+
+* Access modifier:
+- Private: chỉ sử dụng được trong class chứa nó, không sử dụng được ở các class ngoài
+- Default: Khi không set từ khóa nào (public, private,...) thì mặc định là default -> Class khác trong cùng package có thể truy cập được
+- Protected: như default nhưng có thêm quyền truy cập bên ngoài package bởi Class con
+	+ Class con kế thừa class cha, dùng phương thức "extends"
+	+ import class cha vào class con
+	+ Dùng phương thức không phải static để lấy được giá trị protected
+- Public: dùng được cho mọi class trong project
