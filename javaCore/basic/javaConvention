@@ -1,0 +1,7 @@
+Đặt tên Hàm, biến
+- CamelCase: Viết hoa chữ cái đầu tiên của mỗi từ ngoại từ từ đầu tiên của hàm/biến, không chứa dấu cách, gạch dưới
+
+ Đặt tên class:
+ - Pascal Case: chữ đầu tiên của 1 từ thì viết hoa (phổ biến cho các class khác ngoài testcase)
+ - UnderScore: Có dấu gạch dưới nối các từ, viết hoa chữ cái đầu mỗi từ (phổ biến cho các testcase)
+ 

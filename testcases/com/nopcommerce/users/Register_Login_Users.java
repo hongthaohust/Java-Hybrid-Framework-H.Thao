@@ -1,4 +1,4 @@
-package com.nopcommerce.user;
+package com.nopcommerce.users;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class testcase_login {
+public class Register_Login_Users {
 	WebDriver driver;
 	Select select;
 	String projectPath = System.getProperty("user.dir");
@@ -81,6 +81,7 @@ public class testcase_login {
 		Assert.assertTrue(driver.findElement(By.cssSelector(".ico-logout")).isDisplayed());
 	}
   
+	
 	@Test(dependsOnMethods = "TC_02_login")
 	public void TC_03_myAccount() {
 		driver.findElement(By.cssSelector(".ico-account")).click();
@@ -102,7 +103,6 @@ public class testcase_login {
 		
 		Assert.assertEquals(driver.findElement(By.id("Email")).getAttribute("value"), email);
 		Assert.assertEquals(driver.findElement(By.id("Company")).getAttribute("value"), companyName);
-		
 	}
 
 	@AfterClass
@@ -115,4 +115,12 @@ public class testcase_login {
 		return rand.nextInt(999999);
 	}
 
+	/**
+	 * Set address
+	 * @author ThaoPham
+	 * @param email
+	 */
+	public void setAddress(String email) {
+		this.email = email;
+	}
 }
