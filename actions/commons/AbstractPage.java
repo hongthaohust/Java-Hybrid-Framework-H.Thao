@@ -6,8 +6,10 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -210,6 +212,38 @@ public class AbstractPage {
 	public void switchToDefaultContent(WebDriver driver) {
 		driver.switchTo().defaultContent();
 	}
+	
+	public void doubleClickToElement(WebDriver driver, String locator) {
+		Actions action = new Actions(driver);
+		action.doubleClick(getElement(driver, locator)).perform();
+	}
+	
+	public void rightClickToElement(WebDriver driver, String locator) {
+		Actions action = new Actions(driver);
+		action.contextClick(getElement(driver, locator)).perform();
+	}
+	
+	public void hoverMouseToElement(WebDriver driver, String locator) {
+		Actions action = new Actions(driver);
+		action.moveToElement(getElement(driver, locator)).perform();
+	}
+	
+	public void clickAndHoldToElement(WebDriver driver, String locator) {
+		Actions action = new Actions(driver);
+		action.clickAndHold(getElement(driver, locator)).perform();
+	}
+	
+	public void dragAndDropToElement(WebDriver driver, String sourceLocator, String targetLocator) {
+		Actions action = new Actions(driver);
+		action.dragAndDrop(getElement(driver, sourceLocator),getElement(driver, targetLocator)).perform();
+	}
+	
+	public void sendKeyBoardToElement(WebDriver driver, String locator, Keys key) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getElement(driver, locator),key).perform();
+	}
+	
+	
 	
 	public void sleepInSecond(long second) {
 		try {
