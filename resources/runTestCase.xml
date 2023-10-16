@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Selenium WebDriver API">
+  <test name="Run on Firefox">
+    <classes>
+      <class name="com.nopcommerce.users.Level_01_Register_Login_Users"/>
+      <class name="com.nopcommerce.users.Level_02_Register_Login_User_01"/>
+      <class name="com.nopcommerce.users.Level_02_Register_Login_User_02"/>
+    </classes>
+  </test>
+</suite>

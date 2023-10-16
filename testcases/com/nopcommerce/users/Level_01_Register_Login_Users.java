@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Register_Login_Users {
+public class Level_01_Register_Login_Users {
 	WebDriver driver;
 	Select select;
 	String projectPath = System.getProperty("user.dir");

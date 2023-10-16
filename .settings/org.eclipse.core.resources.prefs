@@ -4,4 +4,5 @@ encoding//javaCore/basic/javaConvention=UTF-8
 encoding//javaCore/oop/Katalon.java=UTF-8
 encoding//javaCore/oop/OOP\ Knownledge=UTF-8
 encoding//javaCore/oop/Selenium.java=UTF-8
-encoding//testcases/com/nopcommerce/users/User_01_Register.java=UTF-8
+encoding//testcases/com/nopcommerce/users/Level_02_Register_Login_User_01.java=UTF-8
+encoding//testcases/com/nopcommerce/users/Level_02_Register_Login_User_02.java=UTF-8
