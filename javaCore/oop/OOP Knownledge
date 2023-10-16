@@ -14,3 +14,9 @@
 	+ import class cha vào class con
 	+ Dùng phương thức không phải static để lấy được giá trị protected
 - Public: dùng được cho mọi class trong project
+
+* Giải thích biến static, final:
+- static: Truy cập trực tiếp thông qua tên class, không cần phải new class đó lên
+- final: Không được phép gán lại giá trị, không thay đổi được giá trị
+
+- Kết hợp "static final": Coi như là hằng số - Quy ước hằng số viết hoa và có gạch dưới để phân tách các chữ

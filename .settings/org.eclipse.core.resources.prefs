@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//actions/pageObjects/HomePageObject.java=UTF-8
 encoding//javaCore/basic/Selenium_child.java=UTF-8
 encoding//javaCore/basic/javaConvention=UTF-8
 encoding//javaCore/oop/Katalon.java=UTF-8
@@ -6,3 +7,4 @@ encoding//javaCore/oop/OOP\ Knownledge=UTF-8
 encoding//javaCore/oop/Selenium.java=UTF-8
 encoding//testcases/com/nopcommerce/users/Level_02_Register_Login_User_01.java=UTF-8
 encoding//testcases/com/nopcommerce/users/Level_02_Register_Login_User_02.java=UTF-8
+encoding//testcases/com/nopcommerce/users/Level_03_Register_Login_User_Page_Object.java=UTF-8

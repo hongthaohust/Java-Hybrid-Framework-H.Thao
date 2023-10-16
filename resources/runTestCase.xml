@@ -2,9 +2,12 @@
 <suite parallel="false" name="Selenium WebDriver API">
   <test name="Run on Firefox">
     <classes>
-      <class name="com.nopcommerce.users.Level_01_Register_Login_Users"/>
+      <!-- 
+      <class name="com.nopcommerce.users.Level_01_Register_Login_Users_Step_by_Step"/>
       <class name="com.nopcommerce.users.Level_02_Register_Login_User_01"/>
       <class name="com.nopcommerce.users.Level_02_Register_Login_User_02"/>
+      -->
+      <class name="com.nopcommerce.users.Level_03_Register_Login_User_Page_Object"/>
     </classes>
   </test>
 </suite>
