@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Selenium WebDriver API">
-  <test name="Run on Firefox">
+
+  <test name="Run on FIREFOX UI">
+  <parameter name="browser" value ="firefox_ui" />
     <classes>
-      <!-- 
-      <class name="com.nopcommerce.users.Level_01_Register_Login_Users_Step_by_Step"/>
-      <class name="com.nopcommerce.users.Level_02_Register_Login_User_01"/>
-      <class name="com.nopcommerce.users.Level_02_Register_Login_User_02"/>
-      -->
-      <class name="com.nopcommerce.users.Level_03_Register_Login_User_Page_Object"/>
+      <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
     </classes>
   </test>
+  
+  <test name="Run on CHROME UI">
+  <parameter name="browser" value ="chrome_ui" />
+    <classes>
+      <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
+    </classes>
+  </test>
+ 
+  <test name="Run on FIREFOX HEADLESS">
+  <parameter name="browser" value ="firefox_headless" />
+    <classes>
+      <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
+    </classes>
+  </test>
+
+
+  <test name="Run on CHROME HEADLESS">
+  <parameter name="browser" value ="chrome_headless" />
+    <classes>
+      <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
+    </classes>
+  </test>
+
+  <test name="Run on EDGE CHROMIUM">
+  <parameter name="browser" value ="edge_chromium" />
+    <classes>
+      <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
+    </classes>
+  </test>
+
 </suite>
