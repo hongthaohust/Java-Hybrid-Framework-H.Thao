@@ -362,6 +362,27 @@ public class AbstractPage {
 		explicitWait.until(ExpectedConditions.presenceOfElementLocated(getByXpath(locator)));
 	}
 	
+	public boolean waitToJQueryAndJSLoaded(WebDriver driver) {
+		explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				try {
+					return ((Long) ((JavascriptExecutor) driver).executeScript("return jQuery.active") == 0);
+				} catch (Exception e) {
+					return true;
+				}
+			}
+		};
+		ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+				}
+			};
+			return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
+	}
+	
 	public void sleepInSecond(long second) {
 		try {
 			Thread.sleep(second * 1000);
