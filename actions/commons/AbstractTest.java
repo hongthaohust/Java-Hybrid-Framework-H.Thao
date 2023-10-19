@@ -10,38 +10,35 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class AbstractTest {
 	private WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	
-//	if (osName.contains("Windows")) {
-//	System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-//} else {
-//	System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-//}
-	
 	protected WebDriver getBrowserDriver(String browserName) {
+		
 		if(browserName.equals("firefox_ui")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			WebDriverManager.firefoxdriver().driverVersion("0.32.2").setup();
 			driver = new FirefoxDriver();
 		} else if(browserName.equals("chrome_ui")) {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		} else if(browserName.equals("firefox_headless")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("--headless=new");
 			options.addArguments("window-size=1920×1080");
 			driver = new FirefoxDriver(options);
 		} else if(browserName.equals("chrome_headless")) {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless=new");
 			options.addArguments("window-size=1920×1080");
 			driver = new ChromeDriver(options);
 		} else if(browserName.equals("edge_chromium")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		} else {
 			throw new RuntimeException("Please input browser value");
@@ -54,9 +51,9 @@ public class AbstractTest {
 		return driver;
 	}
 	
+	
 	public int random() {
 		Random rand = new Random();
 		return rand.nextInt(999999);
 	}
-	
 }

@@ -7,22 +7,20 @@
       <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
     </classes>
   </test>
-  
-  <!-- 
+   
   <test name="Run on CHROME UI">
   <parameter name="browser" value ="chrome_ui" />
     <classes>
       <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
     </classes>
   </test>
- 
+ <!--
   <test name="Run on FIREFOX HEADLESS">
   <parameter name="browser" value ="firefox_headless" />
     <classes>
       <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
     </classes>
   </test>
-
 
   <test name="Run on CHROME HEADLESS">
   <parameter name="browser" value ="chrome_headless" />
