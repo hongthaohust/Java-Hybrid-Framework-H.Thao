@@ -1,3 +1,36 @@
 Selenium Page Factory:
 - Là 1 thư viện của selenium
-- 
+- Sử dụng FindBy/FindBys/FindAll/PageFactory/CacheLookup
+	+ FindBy: tìm 1 hoặc nhiều element thỏa mãn MỘT điều kiện
+		eg: @FindBy(how = How.XPATH, using = "//div[@id='ico-login']")
+			private WebElement loginForm;
+			
+			Hoặc ngắn gọn hơn:
+			@FindBy(xpath = "//div[@id='ico-login']")
+			private WebElement loginForm;
+			
+			@FindBy(css = "div#ico-login")
+			private WebElement loginForm;
+			
+	+ FindBys: tìm 1 hoặc nhiều element thỏa mãn nhiều điều kiện đồng thời, nếu 1 trong các điều kiện sai thì sẽ không tìm thấy
+		 eg: @FindBys({
+		 		@FindBy(how = How.NAME, using = "uid")
+		 		@FindBy(how = How.NAME, using = "password")
+		 	})
+		 	private List <WebElement> bothCriteria;
+		 	
+	+ FindAll: tìm 1 hoặc nhiều element thỏa mãn các điều kiện "hoặc", một trong các điều kiện đúng thì sẽ tìm thấy
+		eg: @FindAll({
+		 		@FindBy(how = How.NAME, using = "uid")
+		 		@FindBy(name = "password")
+		 	})
+		 	private List <WebElement> bothCriteria;
+		 	
+	+ CacheLookup: chỉ tìm WebElement 1 lần duy nhất (được cache lại - chỉ sử dụng trong trường hợp element luôn CỐ ĐỊNH trên page, không nên sử dụng khi DOM change)
+		eg:	@CacheLookup
+			@FindBy(how = How.XPATH, using = "//div[@id='ico-login']")
+			private WebElement loginForm;
+		-> Tăng performence
+		-> Tuy nhiên: trong nhiều trường hợp dẫn đến testcase false do hàm CacheLookup bị lỗi
+			
+			

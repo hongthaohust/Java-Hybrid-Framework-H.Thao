@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Selenium WebDriver API">
 
+<!--
   <test name="Run on FIREFOX UI">
   <parameter name="browser" value ="firefox_ui" />
     <classes>
@@ -14,7 +15,7 @@
       <class name="com.nopcommerce.users.Level_04_Register_Login_User_Multiple_Browser"/>
     </classes>
   </test>
- <!--
+ 
   <test name="Run on FIREFOX HEADLESS">
   <parameter name="browser" value ="firefox_headless" />
     <classes>
@@ -37,5 +38,19 @@
   </test>
   
   -->
+  
+  <test name="Run on FIREFOX UI">
+  <parameter name="browser" value ="firefox_ui" />
+    <classes>
+      <class name="com.nopcommerce.users.Level_05_Register_Login_User_Page_Factory"/>
+    </classes>
+  </test>
+   
+  <test name="Run on CHROME UI">
+  <parameter name="browser" value ="chrome_ui" />
+    <classes>
+      <class name="com.nopcommerce.users.Level_05_Register_Login_User_Page_Factory"/>
+    </classes>
+  </test>
 
 </suite>
