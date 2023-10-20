@@ -55,11 +55,13 @@ public class Level_04_Register_Login_User_Multiple_Browser extends AbstractTest 
 		registerPage.clickRegisterButton();
 		
 		Assert.assertEquals(registerPage.getSuccessText(), "Your registration completed");
+		registerPage.clickLogoutLink();
 	}
   
 	@Test (dependsOnMethods = "TC_01_register")
 	public void TC_02_login() {
-		registerPage.clickLoginLink();
+		homePage = new HomePageObject(driver);
+		homePage.clickLoginLink();
 		
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputEmail(email);
@@ -68,7 +70,7 @@ public class Level_04_Register_Login_User_Multiple_Browser extends AbstractTest 
 		
 		homePage = new HomePageObject(driver);
 		Assert.assertTrue(homePage.isAccountLinkDisplayed());
-		Assert.assertTrue(homePage.isLoginLinkDisplayed());
+		Assert.assertTrue(homePage.isLogoutLinkDisplayed());
 	}
   
 	

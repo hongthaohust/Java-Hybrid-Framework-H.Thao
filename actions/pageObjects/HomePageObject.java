@@ -30,10 +30,20 @@ public class HomePageObject extends AbstractPage {
 		waitForElementVisible(driver, HomePageUI.LOGIN_LINK);
 		return isElementDisplay(driver, HomePageUI.LOGIN_LINK);
 	}
+	
+	public boolean isLogoutLinkDisplayed() {
+		waitForElementVisible(driver, HomePageUI.LOGOUT_LINK);
+		return isElementDisplay(driver, HomePageUI.LOGOUT_LINK);
+	}
 
 	public void clickMyAccountLink() {
 		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
+	}
+	
+	public void clickLoginLink() {
+		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
+		clickToElement(driver, HomePageUI.LOGIN_LINK);
 	}
 
 }

@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
+import pageUIs.HomePageUI;
 import pageUIs.RegisterPageUI;
 
 public class RegisterPageObject extends AbstractPage {
@@ -73,9 +74,8 @@ public class RegisterPageObject extends AbstractPage {
 		return getText(driver, RegisterPageUI.REGISTERED_SUCCESS_MESSAGE);
 	}
 
-	public void clickLoginLink() {
-		waitForElementClickable(driver, RegisterPageUI.LOGIN_LINK);
-		clickToElement(driver, RegisterPageUI.LOGIN_LINK);
+	public void clickLogoutLink() {
+		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
+		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);
 	}
-
 }

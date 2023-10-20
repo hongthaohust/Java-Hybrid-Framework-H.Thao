@@ -68,11 +68,13 @@ public class Level_03_Register_Login_User_Page_Object {
 		registerPage.clickRegisterButton();
 		
 		Assert.assertEquals(registerPage.getSuccessText(), "Your registration completed");
+		registerPage.clickLogoutLink();
 	}
   
 	@Test (dependsOnMethods = "TC_01_register")
 	public void TC_02_login() {
-		registerPage.clickLoginLink();
+		homePage = new HomePageObject(driver);
+		homePage.clickLoginLink();
 		
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputEmail(email);

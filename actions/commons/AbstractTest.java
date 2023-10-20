@@ -18,26 +18,26 @@ public class AbstractTest {
 	String osName = System.getProperty("os.name");
 	
 	protected WebDriver getBrowserDriver(String browserName) {
-		
-		if(browserName.equals("firefox_ui")) {
+		Browser browser = Browser.valueOf(browserName.toUpperCase());
+		if(browser == Browser.FIREFOX_UI) {
 			WebDriverManager.firefoxdriver().driverVersion("0.32.2").setup();
 			driver = new FirefoxDriver();
-		} else if(browserName.equals("chrome_ui")) {
+		} else if(browser == Browser.CHROME_UI) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		} else if(browserName.equals("firefox_headless")) {
+		} else if(browser == Browser.FIREFOX_HEADLESS) {
 			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("--headless=new");
 			options.addArguments("window-size=1920×1080");
 			driver = new FirefoxDriver(options);
-		} else if(browserName.equals("chrome_headless")) {
+		} else if(browser == Browser.CHROME_HEADLESS) {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless=new");
 			options.addArguments("window-size=1920×1080");
 			driver = new ChromeDriver(options);
-		} else if(browserName.equals("edge_chromium")) {
+		} else if(browser == Browser.EDGE_CHROMIUM) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		} else {
