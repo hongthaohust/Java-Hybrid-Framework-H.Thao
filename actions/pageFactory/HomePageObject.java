@@ -57,6 +57,11 @@ public class HomePageObject extends AbstractPage {
 	}
 	
 	public void clickLoginLink() {
+		waitForElementClickable(driver, loginLink);
+		clickToElement(driver, loginLink);
+	}
+	
+	public void clickLogoutLink() {
 		waitForElementClickable(driver, logoutLink);
 		clickToElement(driver, logoutLink);
 	}

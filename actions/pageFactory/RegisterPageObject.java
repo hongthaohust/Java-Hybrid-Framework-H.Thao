@@ -53,6 +53,9 @@ public class RegisterPageObject extends AbstractPage {
 	
 	@FindBy(xpath = "//a[@class='ico-logout']")
 	WebElement logoutLink;
+	
+	@FindBy(xpath = "//a[@class='ico-login']")
+	WebElement loginLink;
 
 	public void clickGenderRadio() {
 		waitForElementClickable(driver, genderMaleRadio);
@@ -118,5 +121,10 @@ public class RegisterPageObject extends AbstractPage {
 	public void clickLogoutLink() {
 		waitForElementClickable(driver, logoutLink);
 		clickToElement(driver, logoutLink);
+	}
+	
+	public void clickLoginLink() {
+		waitForElementClickable(driver, loginLink);
+		clickToElement(driver, loginLink);
 	}
 }

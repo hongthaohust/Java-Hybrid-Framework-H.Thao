@@ -55,6 +55,9 @@ public class Level_05_Register_Login_User_Page_Factory extends AbstractTest {
 		registerPage.clickRegisterButton();
 		
 		Assert.assertEquals(registerPage.getSuccessText(), "Your registration completed");
+		
+		
+		//registerPage.clickLoginLink();
 		registerPage.clickLogoutLink();
 	}
   
