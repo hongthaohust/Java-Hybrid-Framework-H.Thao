@@ -56,13 +56,15 @@ public class Level_06_Register_Login_User_Page_Generator_Manager extends Abstrac
 		
 		Assert.assertEquals(registerPage.getSuccessText(), "Your registration completed");
 		
-		//registerPage.clickLoginLink();
-		homePage = registerPage.clickLogoutLink();
+		
+		//homePage = registerPage.clickLogoutLink();
 	}
   
 	@Test (dependsOnMethods = "TC_01_register")
 	public void TC_02_login() {
-		loginPage = homePage.clickLoginLink();
+		//loginPage = homePage.clickLoginLink();
+		
+		loginPage = registerPage.clickLoginLink();
 		
 		loginPage.inputEmail(email);
 		loginPage.inputPassword(password);

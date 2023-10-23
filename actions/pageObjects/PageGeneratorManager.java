@@ -18,5 +18,4 @@ public class PageGeneratorManager {
 	public static CustomerInfoPageObject getCustomerInfoPage(WebDriver driver) {
 		return new CustomerInfoPageObject(driver);
 	}
-
 }

@@ -79,8 +79,9 @@ public class RegisterPageObject extends AbstractPage {
 		return PageGeneratorManager.getHomePage(driver);
 	}
 	
-	public void clickLoginLink() {
+	public LoginPageObject clickLoginLink() {
 		waitForElementClickable(driver, RegisterPageUI.LOGINT_LINK);
 		clickToElement(driver, RegisterPageUI.LOGINT_LINK);
+		return PageGeneratorManager.getLoginPage(driver);
 	}
 }

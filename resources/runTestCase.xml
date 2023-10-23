@@ -42,15 +42,16 @@
   <test name="Run on FIREFOX UI">
   <parameter name="browser" value ="firefox_ui" />
     <classes>
-      <class name="com.nopcommerce.users.Level_05_Register_Login_User_Page_Factory"/>
+      <class name="com.nopcommerce.users.Level_06_Register_Login_User_Page_Generator_Manager"/>
     </classes>
   </test>
    
+   <!-- 
   <test name="Run on CHROME UI">
   <parameter name="browser" value ="chrome_ui" />
     <classes>
       <class name="com.nopcommerce.users.Level_05_Register_Login_User_Page_Factory"/>
     </classes>
   </test>
-
+	-->
 </suite>
