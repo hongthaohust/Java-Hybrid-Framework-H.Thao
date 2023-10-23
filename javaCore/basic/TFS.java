@@ -8,5 +8,4 @@ public class TFS {
 		Selenium selenium = new Selenium();
 		System.out.println(selenium.public_variable);
 	}
-
 }

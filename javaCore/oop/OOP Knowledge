@@ -25,17 +25,3 @@
 * Các kiểu dữ liệu:
 - Kiểu dữ liệu nguyên thủy: int / float / double / char / byte / short / long / boolean
 - Kiểu dữ liệu tham chiếu: String / Array / Object / Class / Collection / ...
-
-* Page Object, page Factory, Page Generator
-- Page Object: tạo ra các màn hình riêng, mỗi màn hình có những method chỉ dùng trong màn hình đó. Khi vào màn nào thì gọi những hàm trong màn đó ra để xử lý
-	Gồm 3 tầng: testcase, tầng object và tầng UI
-	+ Tầng testcase: chứa testcase để gọi ra các phương thức trong tầng object theo steps mong muốn
-	+ Tầng Object: chứa các method để thao tác với các locator trong từng màn hình
-	+ Tầng UI: chứa các thuộc tính static final (default) là các locator cần thao tác
-- Page Factory: cũng chia ra các màn hình riêng như page Object, nhưng chỉ gồm 2 tầng:
-	+ Tầng testcase: chứa testcase để gọi ra các phương thức trong tầng object theo steps mong muốn
-	+ Tầng object: chứa các method thao tác với các thuộc tính (locator), các thuộc tính (locator) được định nghĩa luôn tại đây và sử dụng annotaion @FindBy để định nghĩa ra chúng
-- Page Generator: dùng để
-	+ Che giấu sự khởi tạo của đối tượng (cụ thể là sự khởi tạo một object mới sau khi thực hiện chuyển trang)
-	+ Tạo sự liên kết giữa các object (vd: loginPage = registerPage.clickLoginLink();)
-	+ Tránh việc lặp lại steps (ở đây chỉ cần gọi ra method có kiểu public static đã tạo trước đó trong class khác)
