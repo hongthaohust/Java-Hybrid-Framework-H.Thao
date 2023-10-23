@@ -3,10 +3,11 @@ package com.nopcommerce.users;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import pageFactory.CustomerInfoPageObject;
-import pageFactory.HomePageObject;
-import pageFactory.LoginPageObject;
-import pageFactory.RegisterPageObject;
+import pageObjects.CustomerInfoPageObject;
+import pageObjects.HomePageObject;
+import pageObjects.LoginPageObject;
+import pageObjects.PageGeneratorManager;
+import pageObjects.RegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -16,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_05_Register_Login_User_Page_Factory extends AbstractTest {
+public class Level_06_Register_Login_User_Page_Generator_Manager extends AbstractTest {
 	WebDriver driver;
 	Select select;
 	String firstName, lastName, dayOfBirth, monthOfBirth, yearOfBirth, email, companyName, password;
@@ -35,10 +36,9 @@ public class Level_05_Register_Login_User_Page_Factory extends AbstractTest {
 
 	@Test
 	public void TC_01_register() {
-		homePage = new HomePageObject(driver);
-		homePage.clickRegisterLink();
-		
-		registerPage = new RegisterPageObject(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
+		registerPage = homePage.clickRegisterLink();
+				
 		registerPage.clickGenderRadio();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -57,20 +57,17 @@ public class Level_05_Register_Login_User_Page_Factory extends AbstractTest {
 		Assert.assertEquals(registerPage.getSuccessText(), "Your registration completed");
 		
 		//registerPage.clickLoginLink();
-		registerPage.clickLogoutLink();
+		homePage = registerPage.clickLogoutLink();
 	}
   
 	@Test (dependsOnMethods = "TC_01_register")
 	public void TC_02_login() {
-		homePage = new HomePageObject(driver);
-		homePage.clickLoginLink();
+		loginPage = homePage.clickLoginLink();
 		
-		loginPage = new LoginPageObject(driver);
 		loginPage.inputEmail(email);
 		loginPage.inputPassword(password);
-		loginPage.clickLoginButton();
+		homePage = loginPage.clickLoginButton();
 		
-		homePage = new HomePageObject(driver);
 		Assert.assertTrue(homePage.isAccountLinkDisplayed());
 		Assert.assertTrue(homePage.isLogoutLinkDisplayed());
 	}
@@ -78,10 +75,8 @@ public class Level_05_Register_Login_User_Page_Factory extends AbstractTest {
 	
 	@Test(dependsOnMethods = "TC_02_login")
 	public void TC_03_myAccount() {
-		homePage.clickMyAccountLink();
-		
-		customerInfoPage = new CustomerInfoPageObject(driver);
-		
+		customerInfoPage = homePage.clickMyAccountLink();
+				
 		Assert.assertTrue(customerInfoPage.isGenderMaleSelected());
 		Assert.assertTrue(customerInfoPage.isGenderFemaleUnselected());
 		

@@ -20,3 +20,8 @@
 - final: Không được phép gán lại giá trị, không thay đổi được giá trị
 
 - Kết hợp "static final": Coi như là hằng số - Quy ước hằng số viết hoa và có gạch dưới để phân tách các chữ
+
+
+* Các kiểu dữ liệu:
+- Kiểu dữ liệu nguyên thủy: int / float / double / char / byte / short / long / boolean
+- Kiểu dữ liệu tham chiếu: String / Array / Object / Class / Collection / ...
