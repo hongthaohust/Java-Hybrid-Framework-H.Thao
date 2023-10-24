@@ -47,5 +47,5 @@
 	+ Tạo sự liên kết giữa các object (vd: loginPage = registerPage.clickLoginLink();)
 	+ Tránh việc lặp lại steps (ở đây chỉ cần gọi ra method có kiểu public static đã tạo trước đó trong class khác)
 - Switch Page:
-	+ Đưa vào common những hàm dùng chung khi chuyển trang (thường là: menubar, header, footer, sidebar ...)
-	+ 	
+	+ Đưa vào common (AbstractPage) những hàm dùng chung khi chuyển trang (thường là: menubar, header, footer, sidebar ...)
+	+ Mỗi lần chuyển trang thì gọi ra từ AbstractPage

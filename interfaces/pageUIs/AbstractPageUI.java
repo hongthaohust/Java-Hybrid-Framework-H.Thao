@@ -9,4 +9,7 @@ public class AbstractPageUI {
 	public static final String REWARD_POINTS_LINK = "//div[@class='listbox']//a[text()='Reward points']";
 	public static final String CHANGE_PASSWORD_LINK = "//div[@class='listbox']//a[text()='Change password']";
 	public static final String MY_PRODUCT_REVIEW_LINK = "//div[@class='listbox']//a[text()='My product reviews']";
+	
+	// Dynamic Link
+	public static final String DYNAMIC_LINK = "//div[@class='listbox']//a[text()='%s']";
 }

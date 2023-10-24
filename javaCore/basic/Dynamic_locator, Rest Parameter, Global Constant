@@ -1,0 +1,12 @@
+- Tại header, sidebar, footer,... thường có các locator giống nhau, chỉ khác mỗi text()
+- Trường hợp này nên sử dụng Dynamic locator để thu gọn code
+- Cách dùng:
+	+ Tại AbstractUI: chỉ cần khai báo 1 biến String, tại vị trí có sự khác nhau về text thì sử dụng ký tự "%s"
+		vd: public static final String DYNAMIC_LINK = "//div[@class='listbox']//a[text()='%s']";
+		
+	+ Thêm các function tại AbstractPage để xử lý dynamic:
+		public void waitForElementVisible(WebDriver driver, String locator, String...values ) {
+			explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			locator = String.format(locator, (Object[]) values);  =======> Hàm format String, gắn giá trị dynamic vào ký tự "%s" => Kết quả trả về locator đúng
+			explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
+		}
