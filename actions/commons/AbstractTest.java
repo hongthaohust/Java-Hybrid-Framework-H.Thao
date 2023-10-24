@@ -46,7 +46,7 @@ public class AbstractTest {
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();
-		driver.get("https://demo.nopcommerce.com/");
+		driver.get(GlobalConstans.DEV_SERVER);
 		
 		return driver;
 	}
