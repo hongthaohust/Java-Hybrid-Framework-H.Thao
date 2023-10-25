@@ -15,15 +15,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjects.AddressesPageObject;
-import pageObjects.BackInStockSubscriptionsPageObject;
-import pageObjects.ChangePasswordPageObject;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.DownloadableProductPageObject;
-import pageObjects.MyProductReviewPageObject;
-import pageObjects.OrdersPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RewardPointsPageObject;
+import pageObjects.UserAddressesPO;
+import pageObjects.UserBackInStockSubsPO;
+import pageObjects.UserChangePasswordPO;
+import pageObjects.UserCustomerInfoPO;
+import pageObjects.UserDownloadableProductPO;
+import pageObjects.UserMyProductReviewPO;
+import pageObjects.UserOrdersPO;
+import pageObjects.UserPageGeneratorManager;
+import pageObjects.UserRewardPointsPO;
 import pageUIs.AbstractPageUI;
 
 public class AbstractPage {
@@ -437,52 +437,52 @@ public class AbstractPage {
 	}
 	
 	// 8 hàm mở page
-	public MyProductReviewPageObject openMyproductReview(WebDriver driver) {
+	public UserMyProductReviewPO openMyproductReview(WebDriver driver) {
 		waitForElementVisible(driver, AbstractPageUI.MY_PRODUCT_REVIEW_LINK);
 		clickToElement(driver, AbstractPageUI.MY_PRODUCT_REVIEW_LINK);
-		return PageGeneratorManager.getMyProductReviewPage(driver);
+		return UserPageGeneratorManager.getMyProductReviewPage(driver);
 	}
 
-	public CustomerInfoPageObject openCustomerInfo(WebDriver driver) {
+	public UserCustomerInfoPO openCustomerInfo(WebDriver driver) {
 		waitForElementVisible(driver, AbstractPageUI.CUSTOMER_INFO_LINK);
 		clickToElement(driver, AbstractPageUI.CUSTOMER_INFO_LINK);
-		return PageGeneratorManager.getCustomerInfoPage(driver);
+		return UserPageGeneratorManager.getCustomerInfoPage(driver);
 	}
 	
-	public AddressesPageObject openAddressesPage(WebDriver driver) {
+	public UserAddressesPO openAddressesPage(WebDriver driver) {
 		waitForElementVisible(driver, AbstractPageUI.ADDRESSES_LINK);
 		clickToElement(driver, AbstractPageUI.ADDRESSES_LINK);
-		return PageGeneratorManager.getAddressesPage(driver);
+		return UserPageGeneratorManager.getAddressesPage(driver);
 	}
 	
-	public OrdersPageObject openOrders(WebDriver driver) {
+	public UserOrdersPO openOrders(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.ORDERS_LINK);
 		clickToElement(driver, AbstractPageUI.ORDERS_LINK);
-		return PageGeneratorManager.getOrdersPage(driver);
+		return UserPageGeneratorManager.getOrdersPage(driver);
 	}
 	
-	public DownloadableProductPageObject openDownloadableProducts(WebDriver driver) {
+	public UserDownloadableProductPO openDownloadableProducts(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.DOWNLOADABLE_PRODUCT_LINK);
 		clickToElement(driver, AbstractPageUI.DOWNLOADABLE_PRODUCT_LINK);
-		return PageGeneratorManager.getDownloadableProductPage(driver);
+		return UserPageGeneratorManager.getDownloadableProductPage(driver);
 	}
 	
-	public BackInStockSubscriptionsPageObject openBackInStockSubs(WebDriver driver) {
+	public UserBackInStockSubsPO openBackInStockSubs(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.BACK_IN_STOCK_SUBSCRIPTIONS_LINK);
 		clickToElement(driver, AbstractPageUI.BACK_IN_STOCK_SUBSCRIPTIONS_LINK);
-		return PageGeneratorManager.getBackInStockSubsPage(driver);
+		return UserPageGeneratorManager.getBackInStockSubsPage(driver);
 	}
 	
-	public RewardPointsPageObject openRewardPoints(WebDriver driver) {
+	public UserRewardPointsPO openRewardPoints(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.REWARD_POINTS_LINK);
 		clickToElement(driver, AbstractPageUI.REWARD_POINTS_LINK);
-		return PageGeneratorManager.getRewardPointsPage(driver);
+		return UserPageGeneratorManager.getRewardPointsPage(driver);
 	}
 	
-	public ChangePasswordPageObject openChangePassword(WebDriver driver) {
+	public UserChangePasswordPO openChangePassword(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.CHANGE_PASSWORD_LINK);
 		clickToElement(driver, AbstractPageUI.CHANGE_PASSWORD_LINK);
-		return PageGeneratorManager.getChangePasswordPage(driver);
+		return UserPageGeneratorManager.getChangePasswordPage(driver);
 	}
 	
 	public AbstractPage openMenubarLink01(WebDriver driver, String pageName) {
@@ -491,28 +491,28 @@ public class AbstractPage {
 		
 		switch (pageName) {
 		case "Customer info": {
-			return PageGeneratorManager.getCustomerInfoPage(driver);
+			return UserPageGeneratorManager.getCustomerInfoPage(driver);
 				}
 		case "Addresses": {
-			return PageGeneratorManager.getAddressesPage(driver);
+			return UserPageGeneratorManager.getAddressesPage(driver);
 		}
 		case "Orders": {
-			return PageGeneratorManager.getOrdersPage(driver);
+			return UserPageGeneratorManager.getOrdersPage(driver);
 				}
 		case "Downloadable products": {
-			return PageGeneratorManager.getDownloadableProductPage(driver);
+			return UserPageGeneratorManager.getDownloadableProductPage(driver);
 		}
 		case "Back in stock subscriptions": {
-			return PageGeneratorManager.getBackInStockSubsPage(driver);
+			return UserPageGeneratorManager.getBackInStockSubsPage(driver);
 		}
 		case "Reward points": {
-			return PageGeneratorManager.getRewardPointsPage(driver);
+			return UserPageGeneratorManager.getRewardPointsPage(driver);
 		}
 		case "Change password": {
-			return PageGeneratorManager.getChangePasswordPage(driver);
+			return UserPageGeneratorManager.getChangePasswordPage(driver);
 		}
 		case "My product reviews": {
-			return PageGeneratorManager.getMyProductReviewPage(driver);
+			return UserPageGeneratorManager.getMyProductReviewPage(driver);
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + pageName);

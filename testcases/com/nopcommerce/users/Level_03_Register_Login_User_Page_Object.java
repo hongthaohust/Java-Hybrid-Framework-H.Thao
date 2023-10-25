@@ -2,10 +2,10 @@ package com.nopcommerce.users;
 
 import org.testng.annotations.Test;
 
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.UserCustomerInfoPO;
+import pageObjects.UserHomePO;
+import pageObjects.UserLoginPO;
+import pageObjects.UserRegisterPO;
 
 import org.testng.annotations.BeforeClass;
 
@@ -48,10 +48,10 @@ public class Level_03_Register_Login_User_Page_Object {
 
 	@Test
 	public void TC_01_register() {
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePO(driver);
 		homePage.clickRegisterLink();
 		
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPO(driver);
 		registerPage.clickGenderRadio();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -73,15 +73,15 @@ public class Level_03_Register_Login_User_Page_Object {
   
 	@Test (dependsOnMethods = "TC_01_register")
 	public void TC_02_login() {
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePO(driver);
 		homePage.clickLoginLink();
 		
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPO(driver);
 		loginPage.inputEmail(email);
 		loginPage.inputPassword(password);
 		loginPage.clickLoginButton();
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePO(driver);
 		Assert.assertTrue(homePage.isAccountLinkDisplayed());
 		Assert.assertTrue(homePage.isLoginLinkDisplayed());
 	}
@@ -91,7 +91,7 @@ public class Level_03_Register_Login_User_Page_Object {
 	public void TC_03_myAccount() {
 		homePage.clickMyAccountLink();
 		
-		customerInfoPage = new CustomerInfoPageObject(driver);
+		customerInfoPage = new UserCustomerInfoPO(driver);
 		
 		Assert.assertTrue(customerInfoPage.isGenderMaleSelected());
 		Assert.assertTrue(customerInfoPage.isGenderFemaleUnselected());
@@ -119,8 +119,8 @@ public class Level_03_Register_Login_User_Page_Object {
 		return rand.nextInt(999999);
 	}
 	
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	LoginPageObject loginPage;
-	CustomerInfoPageObject customerInfoPage;
+	UserHomePO homePage;
+	UserRegisterPO registerPage;
+	UserLoginPO loginPage;
+	UserCustomerInfoPO customerInfoPage;
 }

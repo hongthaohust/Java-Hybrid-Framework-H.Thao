@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPage;
 import pageUIs.RegisterPageUI;
 
-public class RegisterPageObject extends AbstractPage {
+public class UserRegisterPO extends AbstractPage {
 	WebDriver driver;
 	
-	public RegisterPageObject(WebDriver driver) {
+	public UserRegisterPO(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -73,15 +73,15 @@ public class RegisterPageObject extends AbstractPage {
 		return getText(driver, RegisterPageUI.REGISTERED_SUCCESS_MESSAGE);
 	}
 
-	public HomePageObject clickLogoutLink() {
+	public UserHomePO clickLogoutLink() {
 		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
 		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);
-		return PageGeneratorManager.getHomePage(driver);
+		return UserPageGeneratorManager.getHomePage(driver);
 	}
 	
-	public LoginPageObject clickLoginLink() {
+	public UserLoginPO clickLoginLink() {
 		waitForElementClickable(driver, RegisterPageUI.LOGINT_LINK);
 		clickToElement(driver, RegisterPageUI.LOGINT_LINK);
-		return PageGeneratorManager.getLoginPage(driver);
+		return UserPageGeneratorManager.getLoginPage(driver);
 	}
 }

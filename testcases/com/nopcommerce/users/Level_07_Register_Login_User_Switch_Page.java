@@ -3,18 +3,18 @@ package com.nopcommerce.users;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import pageObjects.AddressesPageObject;
-import pageObjects.BackInStockSubscriptionsPageObject;
-import pageObjects.ChangePasswordPageObject;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.DownloadableProductPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.MyProductReviewPageObject;
-import pageObjects.OrdersPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
-import pageObjects.RewardPointsPageObject;
+import pageObjects.UserAddressesPO;
+import pageObjects.UserBackInStockSubsPO;
+import pageObjects.UserChangePasswordPO;
+import pageObjects.UserCustomerInfoPO;
+import pageObjects.UserDownloadableProductPO;
+import pageObjects.UserHomePO;
+import pageObjects.UserLoginPO;
+import pageObjects.UserMyProductReviewPO;
+import pageObjects.UserOrdersPO;
+import pageObjects.UserPageGeneratorManager;
+import pageObjects.UserRegisterPO;
+import pageObjects.UserRewardPointsPO;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -43,7 +43,7 @@ public class Level_07_Register_Login_User_Switch_Page extends AbstractTest {
 
 	@Test
 	public void TC_01_register() {
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = UserPageGeneratorManager.getHomePage(driver);
 		registerPage = homePage.clickRegisterLink();
 				
 		registerPage.clickGenderRadio();
@@ -123,15 +123,15 @@ public class Level_07_Register_Login_User_Switch_Page extends AbstractTest {
 		driver.quit();
 	}
 	
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	LoginPageObject loginPage;
-	CustomerInfoPageObject customerInfoPage;
-	AddressesPageObject addressesPage;
-	OrdersPageObject orderPage;
-	MyProductReviewPageObject myProductPage;
-	DownloadableProductPageObject downloadableProductPage;
-	BackInStockSubscriptionsPageObject backInStockSubsPage;
-	RewardPointsPageObject rewardPointPage;
-	ChangePasswordPageObject changePasswordPage;
+	UserHomePO homePage;
+	UserRegisterPO registerPage;
+	UserLoginPO loginPage;
+	UserCustomerInfoPO customerInfoPage;
+	UserAddressesPO addressesPage;
+	UserOrdersPO orderPage;
+	UserMyProductReviewPO myProductPage;
+	UserDownloadableProductPO downloadableProductPage;
+	UserBackInStockSubsPO backInStockSubsPage;
+	UserRewardPointsPO rewardPointPage;
+	UserChangePasswordPO changePasswordPage;
 }

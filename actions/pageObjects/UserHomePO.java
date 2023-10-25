@@ -5,21 +5,21 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPage;
 import pageUIs.HomePageUI;
 
-public class HomePageObject extends AbstractPage {
+public class UserHomePO extends AbstractPage {
 	WebDriver driver;
 	
 	// Hàm khởi tạo (Constructor)
 	// Khi new Class này lên HomePageObject thì nó sẽ chạy đầu tiên
 	// Không có kiểu trả về
 	// Cùng tên với tên class
-	public HomePageObject(WebDriver driver) {
+	public UserHomePO(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public RegisterPageObject clickRegisterLink() {
+	public UserRegisterPO clickRegisterLink() {
 		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
 		clickToElement(driver, HomePageUI.REGISTER_LINK);
-		return PageGeneratorManager.getRegisterPage(driver);
+		return UserPageGeneratorManager.getRegisterPage(driver);
 	}
 
 	public boolean isAccountLinkDisplayed() {
@@ -37,16 +37,16 @@ public class HomePageObject extends AbstractPage {
 		return isElementDisplay(driver, HomePageUI.LOGOUT_LINK);
 	}
 
-	public CustomerInfoPageObject clickMyAccountLink() {
+	public UserCustomerInfoPO clickMyAccountLink() {
 		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
-		return PageGeneratorManager.getCustomerInfoPage(driver);
+		return UserPageGeneratorManager.getCustomerInfoPage(driver);
 	}
 	
-	public LoginPageObject clickLoginLink() {
+	public UserLoginPO clickLoginLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
-		return PageGeneratorManager.getLoginPage(driver);
+		return UserPageGeneratorManager.getLoginPage(driver);
 	}
 	
 	public void clickLogoutLink() {

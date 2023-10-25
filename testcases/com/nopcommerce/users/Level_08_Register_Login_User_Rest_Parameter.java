@@ -3,18 +3,18 @@ package com.nopcommerce.users;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import pageObjects.AddressesPageObject;
-import pageObjects.BackInStockSubscriptionsPageObject;
-import pageObjects.ChangePasswordPageObject;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.DownloadableProductPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.MyProductReviewPageObject;
-import pageObjects.OrdersPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
-import pageObjects.RewardPointsPageObject;
+import pageObjects.UserAddressesPO;
+import pageObjects.UserBackInStockSubsPO;
+import pageObjects.UserChangePasswordPO;
+import pageObjects.UserCustomerInfoPO;
+import pageObjects.UserDownloadableProductPO;
+import pageObjects.UserHomePO;
+import pageObjects.UserLoginPO;
+import pageObjects.UserMyProductReviewPO;
+import pageObjects.UserOrdersPO;
+import pageObjects.UserPageGeneratorManager;
+import pageObjects.UserRegisterPO;
+import pageObjects.UserRewardPointsPO;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -43,7 +43,7 @@ public class Level_08_Register_Login_User_Rest_Parameter extends AbstractTest {
 
 	@Test
 	public void TC_01_register() {
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = UserPageGeneratorManager.getHomePage(driver);
 		registerPage = homePage.clickRegisterLink();
 				
 		registerPage.clickGenderRadio();
@@ -105,39 +105,39 @@ public class Level_08_Register_Login_User_Rest_Parameter extends AbstractTest {
 	@Test (dependsOnMethods = "TC_03_myAccount")
 	public void TC_04_Rest_Parameter_C1() {
 		
-		addressesPage = (AddressesPageObject) customerInfoPage.openMenubarLink01(driver,"Addresses"); // vào trang address
+		addressesPage = (UserAddressesPO) customerInfoPage.openMenubarLink01(driver,"Addresses"); // vào trang address
 		
-		customerInfoPage = (CustomerInfoPageObject) addressesPage.openMenubarLink01(driver, "Customer info"); // vào trang customer info
+		customerInfoPage = (UserCustomerInfoPO) addressesPage.openMenubarLink01(driver, "Customer info"); // vào trang customer info
 		
-		orderPage = (OrdersPageObject) customerInfoPage.openMenubarLink01(driver,"Orders"); // vào trang orders
+		orderPage = (UserOrdersPO) customerInfoPage.openMenubarLink01(driver,"Orders"); // vào trang orders
 		
-		customerInfoPage = (CustomerInfoPageObject) orderPage.openMenubarLink01(driver, "Customer info"); // vào trang customer info
+		customerInfoPage = (UserCustomerInfoPO) orderPage.openMenubarLink01(driver, "Customer info"); // vào trang customer info
 		
-		myProductPage = (MyProductReviewPageObject) customerInfoPage.openMenubarLink01(driver, "My product reviews"); // vào trang my product reciew
+		myProductPage = (UserMyProductReviewPO) customerInfoPage.openMenubarLink01(driver, "My product reviews"); // vào trang my product reciew
 		
-		customerInfoPage = (CustomerInfoPageObject) myProductPage.openMenubarLink01(driver, "Customer info"); // vào trang customer info
+		customerInfoPage = (UserCustomerInfoPO) myProductPage.openMenubarLink01(driver, "Customer info"); // vào trang customer info
 	}
 	
 	@Test (dependsOnMethods = "TC_03_myAccount")
 	public void TC_05_Rest_Parameter_C2() {
 		
 		customerInfoPage.openMenubarLink02(driver,"Addresses"); // vào trang address
-		addressesPage = PageGeneratorManager.getAddressesPage(driver);
+		addressesPage = UserPageGeneratorManager.getAddressesPage(driver);
 		
 		addressesPage.openMenubarLink02(driver, "Customer info"); // vào trang customer info
-		customerInfoPage = PageGeneratorManager.getCustomerInfoPage(driver);
+		customerInfoPage = UserPageGeneratorManager.getCustomerInfoPage(driver);
 		
 		customerInfoPage.openMenubarLink02(driver,"Orders"); // vào trang orders
-		orderPage = PageGeneratorManager.getOrdersPage(driver);
+		orderPage = UserPageGeneratorManager.getOrdersPage(driver);
 		
 		orderPage.openMenubarLink02(driver, "Customer info"); // vào trang customer info
-		customerInfoPage = PageGeneratorManager.getCustomerInfoPage(driver);
+		customerInfoPage = UserPageGeneratorManager.getCustomerInfoPage(driver);
 		
 		customerInfoPage.openMenubarLink02(driver, "My product reviews"); // vào trang my product reciew
-		myProductPage = PageGeneratorManager.getMyProductReviewPage(driver);
+		myProductPage = UserPageGeneratorManager.getMyProductReviewPage(driver);
 		
 		myProductPage.openMenubarLink02(driver, "Customer info"); // vào trang customer info
-		customerInfoPage = PageGeneratorManager.getCustomerInfoPage(driver);
+		customerInfoPage = UserPageGeneratorManager.getCustomerInfoPage(driver);
 	}
 
 	@AfterClass
@@ -145,15 +145,15 @@ public class Level_08_Register_Login_User_Rest_Parameter extends AbstractTest {
 		driver.quit();
 	}
 	
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	LoginPageObject loginPage;
-	CustomerInfoPageObject customerInfoPage;
-	AddressesPageObject addressesPage;
-	OrdersPageObject orderPage;
-	MyProductReviewPageObject myProductPage;
-	DownloadableProductPageObject downloadableProductPage;
-	BackInStockSubscriptionsPageObject backInStockSubsPage;
-	RewardPointsPageObject rewardPointPage;
-	ChangePasswordPageObject changePasswordPage;
+	UserHomePO homePage;
+	UserRegisterPO registerPage;
+	UserLoginPO loginPage;
+	UserCustomerInfoPO customerInfoPage;
+	UserAddressesPO addressesPage;
+	UserOrdersPO orderPage;
+	UserMyProductReviewPO myProductPage;
+	UserDownloadableProductPO downloadableProductPage;
+	UserBackInStockSubsPO backInStockSubsPage;
+	UserRewardPointsPO rewardPointPage;
+	UserChangePasswordPO changePasswordPage;
 }

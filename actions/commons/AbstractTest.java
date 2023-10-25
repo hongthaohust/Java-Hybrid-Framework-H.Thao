@@ -51,6 +51,40 @@ public class AbstractTest {
 		return driver;
 	}
 	
+	protected WebDriver getBrowserDriver(String browserName, String url) {
+		Browser browser = Browser.valueOf(browserName.toUpperCase());
+		if(browser == Browser.FIREFOX_UI) {
+			WebDriverManager.firefoxdriver().driverVersion("0.32.2").setup();
+			driver = new FirefoxDriver();
+		} else if(browser == Browser.CHROME_UI) {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		} else if(browser == Browser.FIREFOX_HEADLESS) {
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxOptions options = new FirefoxOptions();
+			options.addArguments("--headless=new");
+			options.addArguments("window-size=1920×1080");
+			driver = new FirefoxDriver(options);
+		} else if(browser == Browser.CHROME_HEADLESS) {
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless=new");
+			options.addArguments("window-size=1920×1080");
+			driver = new ChromeDriver(options);
+		} else if(browser == Browser.EDGE_CHROMIUM) {
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+		} else {
+			throw new RuntimeException("Please input browser value");
+		}
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().window().maximize();
+		driver.get(url);
+		
+		return driver;
+	}
+	
 	
 	public int random() {
 		Random rand = new Random();

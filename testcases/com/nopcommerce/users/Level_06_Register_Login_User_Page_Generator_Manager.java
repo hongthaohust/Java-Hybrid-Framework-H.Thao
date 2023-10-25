@@ -3,11 +3,11 @@ package com.nopcommerce.users;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import pageObjects.UserCustomerInfoPO;
+import pageObjects.UserHomePO;
+import pageObjects.UserLoginPO;
+import pageObjects.UserPageGeneratorManager;
+import pageObjects.UserRegisterPO;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -36,7 +36,7 @@ public class Level_06_Register_Login_User_Page_Generator_Manager extends Abstrac
 
 	@Test
 	public void TC_01_register() {
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = UserPageGeneratorManager.getHomePage(driver);
 		registerPage = homePage.clickRegisterLink();
 				
 		registerPage.clickGenderRadio();
@@ -100,8 +100,8 @@ public class Level_06_Register_Login_User_Page_Generator_Manager extends Abstrac
 		driver.quit();
 	}
 	
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	LoginPageObject loginPage;
-	CustomerInfoPageObject customerInfoPage;
+	UserHomePO homePage;
+	UserRegisterPO registerPage;
+	UserLoginPO loginPage;
+	UserCustomerInfoPO customerInfoPage;
 }

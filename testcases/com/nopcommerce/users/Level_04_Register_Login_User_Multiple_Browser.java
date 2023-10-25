@@ -3,10 +3,10 @@ package com.nopcommerce.users;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.UserCustomerInfoPO;
+import pageObjects.UserHomePO;
+import pageObjects.UserLoginPO;
+import pageObjects.UserRegisterPO;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -35,10 +35,10 @@ public class Level_04_Register_Login_User_Multiple_Browser extends AbstractTest 
 
 	@Test
 	public void TC_01_register() {
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePO(driver);
 		homePage.clickRegisterLink();
 		
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPO(driver);
 		registerPage.clickGenderRadio();
 		registerPage.inputFirstName(firstName);
 		registerPage.inputLastName(lastName);
@@ -60,15 +60,15 @@ public class Level_04_Register_Login_User_Multiple_Browser extends AbstractTest 
   
 	@Test (dependsOnMethods = "TC_01_register")
 	public void TC_02_login() {
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePO(driver);
 		homePage.clickLoginLink();
 		
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPO(driver);
 		loginPage.inputEmail(email);
 		loginPage.inputPassword(password);
 		loginPage.clickLoginButton();
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePO(driver);
 		Assert.assertTrue(homePage.isAccountLinkDisplayed());
 		Assert.assertTrue(homePage.isLogoutLinkDisplayed());
 	}
@@ -78,7 +78,7 @@ public class Level_04_Register_Login_User_Multiple_Browser extends AbstractTest 
 	public void TC_03_myAccount() {
 		homePage.clickMyAccountLink();
 		
-		customerInfoPage = new CustomerInfoPageObject(driver);
+		customerInfoPage = new UserCustomerInfoPO(driver);
 		
 		Assert.assertTrue(customerInfoPage.isGenderMaleSelected());
 		Assert.assertTrue(customerInfoPage.isGenderFemaleUnselected());
@@ -101,8 +101,8 @@ public class Level_04_Register_Login_User_Multiple_Browser extends AbstractTest 
 		driver.quit();
 	}
 	
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	LoginPageObject loginPage;
-	CustomerInfoPageObject customerInfoPage;
+	UserHomePO homePage;
+	UserRegisterPO registerPage;
+	UserLoginPO loginPage;
+	UserCustomerInfoPO customerInfoPage;
 }
