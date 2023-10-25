@@ -3,7 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import pageUIs.RegisterPageUI;
+import pageUIs.UserRegisterPageUI;
 
 public class UserRegisterPO extends AbstractPage {
 	WebDriver driver;
@@ -13,75 +13,75 @@ public class UserRegisterPO extends AbstractPage {
 	}
 
 	public void clickGenderRadio() {
-		waitForElementClickable(driver, RegisterPageUI.GENDER_MALE_RADIO);
-		clickToElement(driver, RegisterPageUI.GENDER_MALE_RADIO);
+		waitForElementClickable(driver, UserRegisterPageUI.GENDER_MALE_RADIO);
+		clickToElement(driver, UserRegisterPageUI.GENDER_MALE_RADIO);
 	}
 
 	public void inputFirstName(String firstName) {
-		waitForElementVisible(driver, RegisterPageUI.FIRSTNAME_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.FIRSTNAME_TEXTBOX, firstName);
+		waitForElementVisible(driver, UserRegisterPageUI.FIRSTNAME_TEXTBOX);
+		sendkeyToElement(driver, UserRegisterPageUI.FIRSTNAME_TEXTBOX, firstName);
 	}
 
 	public void inputLastName(String lastName) {
-		waitForElementVisible(driver, RegisterPageUI.LASTNAME_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.LASTNAME_TEXTBOX, lastName);
+		waitForElementVisible(driver, UserRegisterPageUI.LASTNAME_TEXTBOX);
+		sendkeyToElement(driver, UserRegisterPageUI.LASTNAME_TEXTBOX, lastName);
 		
 	}
 
 	public void selectDay(String day) {
-		waitForElementVisible(driver, RegisterPageUI.DATE_DROPDOWN);
-		selectItemInDropdown(driver, RegisterPageUI.DATE_DROPDOWN, day);
+		waitForElementVisible(driver, UserRegisterPageUI.DATE_DROPDOWN);
+		selectItemInDropdown(driver, UserRegisterPageUI.DATE_DROPDOWN, day);
 	}
 
 	public void selectMonth(String month) {
-		waitForElementVisible(driver, RegisterPageUI.MONTH_DROPDOWN);
-		selectItemInDropdown(driver, RegisterPageUI.MONTH_DROPDOWN, month);
+		waitForElementVisible(driver, UserRegisterPageUI.MONTH_DROPDOWN);
+		selectItemInDropdown(driver, UserRegisterPageUI.MONTH_DROPDOWN, month);
 	}
 
 	public void selectYear(String year) {
-		waitForElementVisible(driver, RegisterPageUI.YEAR_DROPDOWN);
-		selectItemInDropdown(driver, RegisterPageUI.YEAR_DROPDOWN, year);
+		waitForElementVisible(driver, UserRegisterPageUI.YEAR_DROPDOWN);
+		selectItemInDropdown(driver, UserRegisterPageUI.YEAR_DROPDOWN, year);
 	}
 
 	public void inputEmail(String email) {
-		waitForElementVisible(driver, RegisterPageUI.EMAIL_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.EMAIL_TEXTBOX, email);
+		waitForElementVisible(driver, UserRegisterPageUI.EMAIL_TEXTBOX);
+		sendkeyToElement(driver, UserRegisterPageUI.EMAIL_TEXTBOX, email);
 	}
 
 	public void inputCompany(String companyName) {
-		waitForElementVisible(driver, RegisterPageUI.COMPANY_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.COMPANY_TEXTBOX, companyName);
+		waitForElementVisible(driver, UserRegisterPageUI.COMPANY_TEXTBOX);
+		sendkeyToElement(driver, UserRegisterPageUI.COMPANY_TEXTBOX, companyName);
 	}
 
 	public void inputPassword(String password) {
-		waitForElementVisible(driver, RegisterPageUI.PASSWORD_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.PASSWORD_TEXTBOX, password);
+		waitForElementVisible(driver, UserRegisterPageUI.PASSWORD_TEXTBOX);
+		sendkeyToElement(driver, UserRegisterPageUI.PASSWORD_TEXTBOX, password);
 	}
 
 	public void inputConfirmPassword(String password) {
-		waitForElementVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, password);
+		waitForElementVisible(driver, UserRegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
+		sendkeyToElement(driver, UserRegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, password);
 	}
 
 	public void clickRegisterButton() {
-		waitForElementClickable(driver, RegisterPageUI.REGISTER_BUTTON);
-		clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
+		waitForElementClickable(driver, UserRegisterPageUI.REGISTER_BUTTON);
+		clickToElement(driver, UserRegisterPageUI.REGISTER_BUTTON);
 	}
 
 	public String getSuccessText() {
-		waitForElementVisible(driver, RegisterPageUI.REGISTERED_SUCCESS_MESSAGE);
-		return getText(driver, RegisterPageUI.REGISTERED_SUCCESS_MESSAGE);
+		waitForElementVisible(driver, UserRegisterPageUI.REGISTERED_SUCCESS_MESSAGE);
+		return getText(driver, UserRegisterPageUI.REGISTERED_SUCCESS_MESSAGE);
 	}
 
 	public UserHomePO clickLogoutLink() {
-		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
-		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);
-		return UserPageGeneratorManager.getHomePage(driver);
+		waitForElementClickable(driver, UserRegisterPageUI.LOGOUT_LINK);
+		clickToElement(driver, UserRegisterPageUI.LOGOUT_LINK);
+		return PageGeneratorManager.getUserHomePage(driver);
 	}
 	
 	public UserLoginPO clickLoginLink() {
-		waitForElementClickable(driver, RegisterPageUI.LOGINT_LINK);
-		clickToElement(driver, RegisterPageUI.LOGINT_LINK);
-		return UserPageGeneratorManager.getLoginPage(driver);
+		waitForElementClickable(driver, UserRegisterPageUI.LOGINT_LINK);
+		clickToElement(driver, UserRegisterPageUI.LOGINT_LINK);
+		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 }

@@ -22,7 +22,7 @@ import pageObjects.UserCustomerInfoPO;
 import pageObjects.UserDownloadableProductPO;
 import pageObjects.UserMyProductReviewPO;
 import pageObjects.UserOrdersPO;
-import pageObjects.UserPageGeneratorManager;
+import pageObjects.PageGeneratorManager;
 import pageObjects.UserRewardPointsPO;
 import pageUIs.AbstractPageUI;
 
@@ -135,6 +135,7 @@ public class AbstractPage {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		element.click();
 	}
+	
 
 	public void sendkeyToElement(WebDriver driver, String locator, String value) {
 		element = getElement(driver, locator);
@@ -374,6 +375,10 @@ public class AbstractPage {
 		locator = String.format(locator, (Object[])values);
 		return locator;
 	}
+	public String getDynamicLocatorInt(String locator, int...values) {
+		locator = String.format(locator,values);
+		return locator;
+	}
 	
 	public void waitForElementVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstans.LONG_TIMEOUT);
@@ -394,6 +399,7 @@ public class AbstractPage {
 		explicitWait = new WebDriverWait(driver, GlobalConstans.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(getDynamicLocator(locator,values))));
 	}
+	
 	
 	public void waitForElementInvisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstans.LONG_TIMEOUT);
@@ -440,49 +446,49 @@ public class AbstractPage {
 	public UserMyProductReviewPO openMyproductReview(WebDriver driver) {
 		waitForElementVisible(driver, AbstractPageUI.MY_PRODUCT_REVIEW_LINK);
 		clickToElement(driver, AbstractPageUI.MY_PRODUCT_REVIEW_LINK);
-		return UserPageGeneratorManager.getMyProductReviewPage(driver);
+		return PageGeneratorManager.getUserMyProductReviewPage(driver);
 	}
 
 	public UserCustomerInfoPO openCustomerInfo(WebDriver driver) {
 		waitForElementVisible(driver, AbstractPageUI.CUSTOMER_INFO_LINK);
 		clickToElement(driver, AbstractPageUI.CUSTOMER_INFO_LINK);
-		return UserPageGeneratorManager.getCustomerInfoPage(driver);
+		return PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 	
 	public UserAddressesPO openAddressesPage(WebDriver driver) {
 		waitForElementVisible(driver, AbstractPageUI.ADDRESSES_LINK);
 		clickToElement(driver, AbstractPageUI.ADDRESSES_LINK);
-		return UserPageGeneratorManager.getAddressesPage(driver);
+		return PageGeneratorManager.getUserAddressesPage(driver);
 	}
 	
 	public UserOrdersPO openOrders(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.ORDERS_LINK);
 		clickToElement(driver, AbstractPageUI.ORDERS_LINK);
-		return UserPageGeneratorManager.getOrdersPage(driver);
+		return PageGeneratorManager.getUserOrdersPage(driver);
 	}
 	
 	public UserDownloadableProductPO openDownloadableProducts(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.DOWNLOADABLE_PRODUCT_LINK);
 		clickToElement(driver, AbstractPageUI.DOWNLOADABLE_PRODUCT_LINK);
-		return UserPageGeneratorManager.getDownloadableProductPage(driver);
+		return PageGeneratorManager.getUserDownloadableProductPage(driver);
 	}
 	
 	public UserBackInStockSubsPO openBackInStockSubs(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.BACK_IN_STOCK_SUBSCRIPTIONS_LINK);
 		clickToElement(driver, AbstractPageUI.BACK_IN_STOCK_SUBSCRIPTIONS_LINK);
-		return UserPageGeneratorManager.getBackInStockSubsPage(driver);
+		return PageGeneratorManager.getUserBackInStockSubsPage(driver);
 	}
 	
 	public UserRewardPointsPO openRewardPoints(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.REWARD_POINTS_LINK);
 		clickToElement(driver, AbstractPageUI.REWARD_POINTS_LINK);
-		return UserPageGeneratorManager.getRewardPointsPage(driver);
+		return PageGeneratorManager.getUserRewardPointsPage(driver);
 	}
 	
 	public UserChangePasswordPO openChangePassword(WebDriver driver) {
 		waitForElementClickable(driver, AbstractPageUI.CHANGE_PASSWORD_LINK);
 		clickToElement(driver, AbstractPageUI.CHANGE_PASSWORD_LINK);
-		return UserPageGeneratorManager.getChangePasswordPage(driver);
+		return PageGeneratorManager.getUserChangePasswordPage(driver);
 	}
 	
 	public AbstractPage openMenubarLink01(WebDriver driver, String pageName) {
@@ -491,28 +497,28 @@ public class AbstractPage {
 		
 		switch (pageName) {
 		case "Customer info": {
-			return UserPageGeneratorManager.getCustomerInfoPage(driver);
+			return PageGeneratorManager.getUserCustomerInfoPage(driver);
 				}
 		case "Addresses": {
-			return UserPageGeneratorManager.getAddressesPage(driver);
+			return PageGeneratorManager.getUserAddressesPage(driver);
 		}
 		case "Orders": {
-			return UserPageGeneratorManager.getOrdersPage(driver);
+			return PageGeneratorManager.getUserOrdersPage(driver);
 				}
 		case "Downloadable products": {
-			return UserPageGeneratorManager.getDownloadableProductPage(driver);
+			return PageGeneratorManager.getUserDownloadableProductPage(driver);
 		}
 		case "Back in stock subscriptions": {
-			return UserPageGeneratorManager.getBackInStockSubsPage(driver);
+			return PageGeneratorManager.getUserBackInStockSubsPage(driver);
 		}
 		case "Reward points": {
-			return UserPageGeneratorManager.getRewardPointsPage(driver);
+			return PageGeneratorManager.getUserRewardPointsPage(driver);
 		}
 		case "Change password": {
-			return UserPageGeneratorManager.getChangePasswordPage(driver);
+			return PageGeneratorManager.getUserChangePasswordPage(driver);
 		}
 		case "My product reviews": {
-			return UserPageGeneratorManager.getMyProductReviewPage(driver);
+			return PageGeneratorManager.getUserMyProductReviewPage(driver);
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + pageName);

@@ -15,6 +15,13 @@ public class GlobalConstans {
 	public static final String DOWNLOAD_FOLDER = ROOT_FOLDER + getDirectorySlash("downloadFiles");
 	public static final String UPLOAD_FOLDER = ROOT_FOLDER +getDirectorySlash( "uploadFiles");
 	public static final String AUTOIT_FOLDER = ROOT_FOLDER + getDirectorySlash("autoITScript");
+	
+	public static final String ADMIN_MENU_DASHBOARD = "1";
+	public static final String ADMIN_MENU_CATALOG = "2";
+	public static final String ADMIN_MENU_PRODUCT = "1";
+	public static final String ADMIN_MENU_CATEGORY = "2";
+	public static final String ADMIN_MENU_ATTRIBUTE = "6";
+	public static final String ADMIN_MENU_PRODUCT_ATTRIBUTE = "1";
 
 	public static String getDirectorySlash(String folderName) {
 		if (isMac() || isUnix() || isSolaris()) {

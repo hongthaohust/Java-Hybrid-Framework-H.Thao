@@ -3,7 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import pageUIs.HomePageUI;
+import pageUIs.UserHomePageUI;
 
 public class UserHomePO extends AbstractPage {
 	WebDriver driver;
@@ -17,41 +17,41 @@ public class UserHomePO extends AbstractPage {
 	}
 
 	public UserRegisterPO clickRegisterLink() {
-		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
-		clickToElement(driver, HomePageUI.REGISTER_LINK);
-		return UserPageGeneratorManager.getRegisterPage(driver);
+		waitForElementClickable(driver, UserHomePageUI.REGISTER_LINK);
+		clickToElement(driver, UserHomePageUI.REGISTER_LINK);
+		return PageGeneratorManager.getUserRegisterPage(driver);
 	}
 
 	public boolean isAccountLinkDisplayed() {
-		waitForElementVisible(driver, HomePageUI.MY_ACCOUNT_LINK);
-		return isElementDisplay(driver, HomePageUI.MY_ACCOUNT_LINK);
+		waitForElementVisible(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		return isElementDisplay(driver, UserHomePageUI.MY_ACCOUNT_LINK);
 	}
 
 	public boolean isLoginLinkDisplayed() {
-		waitForElementVisible(driver, HomePageUI.LOGIN_LINK);
-		return isElementDisplay(driver, HomePageUI.LOGIN_LINK);
+		waitForElementVisible(driver, UserHomePageUI.LOGIN_LINK);
+		return isElementDisplay(driver, UserHomePageUI.LOGIN_LINK);
 	}
 	
 	public boolean isLogoutLinkDisplayed() {
-		waitForElementVisible(driver, HomePageUI.LOGOUT_LINK);
-		return isElementDisplay(driver, HomePageUI.LOGOUT_LINK);
+		waitForElementVisible(driver, UserHomePageUI.LOGOUT_LINK);
+		return isElementDisplay(driver, UserHomePageUI.LOGOUT_LINK);
 	}
 
 	public UserCustomerInfoPO clickMyAccountLink() {
-		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
-		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
-		return UserPageGeneratorManager.getCustomerInfoPage(driver);
+		waitForElementClickable(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		return PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 	
 	public UserLoginPO clickLoginLink() {
-		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
-		clickToElement(driver, HomePageUI.LOGIN_LINK);
-		return UserPageGeneratorManager.getLoginPage(driver);
+		waitForElementClickable(driver, UserHomePageUI.LOGIN_LINK);
+		clickToElement(driver, UserHomePageUI.LOGIN_LINK);
+		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 	
 	public void clickLogoutLink() {
-		waitForElementClickable(driver, HomePageUI.LOGOUT_LINK);
-		clickToElement(driver, HomePageUI.LOGOUT_LINK);
+		waitForElementClickable(driver, UserHomePageUI.LOGOUT_LINK);
+		clickToElement(driver, UserHomePageUI.LOGOUT_LINK);
 	}
 
 }

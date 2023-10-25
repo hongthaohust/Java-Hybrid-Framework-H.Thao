@@ -6,7 +6,7 @@ import commons.AbstractTest;
 import pageObjects.UserCustomerInfoPO;
 import pageObjects.UserHomePO;
 import pageObjects.UserLoginPO;
-import pageObjects.UserPageGeneratorManager;
+import pageObjects.PageGeneratorManager;
 import pageObjects.UserRegisterPO;
 
 import org.testng.annotations.BeforeClass;
@@ -36,7 +36,7 @@ public class Level_06_Register_Login_User_Page_Generator_Manager extends Abstrac
 
 	@Test
 	public void TC_01_register() {
-		homePage = UserPageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		registerPage = homePage.clickRegisterLink();
 				
 		registerPage.clickGenderRadio();

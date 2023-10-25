@@ -12,7 +12,7 @@ import pageObjects.UserHomePO;
 import pageObjects.UserLoginPO;
 import pageObjects.UserMyProductReviewPO;
 import pageObjects.UserOrdersPO;
-import pageObjects.UserPageGeneratorManager;
+import pageObjects.PageGeneratorManager;
 import pageObjects.UserRegisterPO;
 import pageObjects.UserRewardPointsPO;
 
@@ -43,7 +43,7 @@ public class Level_08_Register_Login_User_Rest_Parameter extends AbstractTest {
 
 	@Test
 	public void TC_01_register() {
-		homePage = UserPageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		registerPage = homePage.clickRegisterLink();
 				
 		registerPage.clickGenderRadio();
@@ -122,22 +122,22 @@ public class Level_08_Register_Login_User_Rest_Parameter extends AbstractTest {
 	public void TC_05_Rest_Parameter_C2() {
 		
 		customerInfoPage.openMenubarLink02(driver,"Addresses"); // vào trang address
-		addressesPage = UserPageGeneratorManager.getAddressesPage(driver);
+		addressesPage = PageGeneratorManager.getUserAddressesPage(driver);
 		
 		addressesPage.openMenubarLink02(driver, "Customer info"); // vào trang customer info
-		customerInfoPage = UserPageGeneratorManager.getCustomerInfoPage(driver);
+		customerInfoPage = PageGeneratorManager.getUserCustomerInfoPage(driver);
 		
 		customerInfoPage.openMenubarLink02(driver,"Orders"); // vào trang orders
-		orderPage = UserPageGeneratorManager.getOrdersPage(driver);
+		orderPage = PageGeneratorManager.getUserOrdersPage(driver);
 		
 		orderPage.openMenubarLink02(driver, "Customer info"); // vào trang customer info
-		customerInfoPage = UserPageGeneratorManager.getCustomerInfoPage(driver);
+		customerInfoPage = PageGeneratorManager.getUserCustomerInfoPage(driver);
 		
 		customerInfoPage.openMenubarLink02(driver, "My product reviews"); // vào trang my product reciew
-		myProductPage = UserPageGeneratorManager.getMyProductReviewPage(driver);
+		myProductPage = PageGeneratorManager.getUserMyProductReviewPage(driver);
 		
 		myProductPage.openMenubarLink02(driver, "Customer info"); // vào trang customer info
-		customerInfoPage = UserPageGeneratorManager.getCustomerInfoPage(driver);
+		customerInfoPage = PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 
 	@AfterClass

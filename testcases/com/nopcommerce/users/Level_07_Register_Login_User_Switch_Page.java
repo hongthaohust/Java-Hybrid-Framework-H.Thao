@@ -12,7 +12,7 @@ import pageObjects.UserHomePO;
 import pageObjects.UserLoginPO;
 import pageObjects.UserMyProductReviewPO;
 import pageObjects.UserOrdersPO;
-import pageObjects.UserPageGeneratorManager;
+import pageObjects.PageGeneratorManager;
 import pageObjects.UserRegisterPO;
 import pageObjects.UserRewardPointsPO;
 
@@ -43,7 +43,7 @@ public class Level_07_Register_Login_User_Switch_Page extends AbstractTest {
 
 	@Test
 	public void TC_01_register() {
-		homePage = UserPageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		registerPage = homePage.clickRegisterLink();
 				
 		registerPage.clickGenderRadio();
