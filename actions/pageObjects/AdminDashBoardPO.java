@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
 import commons.GlobalConstans;
-import pageUIs.AdminDashBoardPageUI;
+import pageUIs.AbstractPageUI;
+import pageUIs.AdminProductPageUI;
 
 public class AdminDashBoardPO extends AbstractPage {
 	WebDriver driver;
@@ -14,11 +15,15 @@ public class AdminDashBoardPO extends AbstractPage {
 	}
 
 	public AdminProductPO openProductPage() {
-		waitForElementClickable(driver, AdminDashBoardPageUI.MAIN_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG);
-		clickToElement(driver, AdminDashBoardPageUI.MAIN_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG);
+		waitForElementClickable(driver, AbstractPageUI.MAIN_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG);
+		clickToElement(driver, AbstractPageUI.MAIN_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG);
+		clickToElement(driver, AbstractPageUI.MAIN_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG);
 		
-		waitForElementClickable(driver, AdminDashBoardPageUI.SUB01_LINK_IN_SIDEBAR,GlobalConstans.ADMIN_MENU_CATALOG, GlobalConstans.ADMIN_MENU_PRODUCT);
-		clickToElement(driver, AdminDashBoardPageUI.SUB01_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG, GlobalConstans.ADMIN_MENU_PRODUCT);
+		waitForElementClickable(driver, AbstractPageUI.SUB01_LINK_IN_SIDEBAR,GlobalConstans.ADMIN_MENU_CATALOG, GlobalConstans.ADMIN_MENU_PRODUCT);
+		clickToElement(driver, AbstractPageUI.SUB01_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG, GlobalConstans.ADMIN_MENU_PRODUCT);
+		
+		waitForElementInvisible(driver, AdminProductPageUI.LOADING_ICON);
+		
 		return PageGeneratorManager.getAdminProductPO(driver);
 	}
 }

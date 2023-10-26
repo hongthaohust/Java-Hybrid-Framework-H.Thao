@@ -219,6 +219,13 @@ public class AbstractPage {
 		}
 	}
 	
+	public void checkToCheckbox(WebDriver driver, String locator, String...value) {
+		element = getElement(driver, getDynamicLocator(locator, value));
+		if(!element.isSelected()) {
+			element.click();
+		}
+	}
+	
 	public void uncheckToCheckbox(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		if(element.isSelected()) {
@@ -226,11 +233,11 @@ public class AbstractPage {
 		}
 	}
 	
-	public boolean isElementDisplay(WebDriver driver, String locator) {
+	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		return getElement(driver, locator).isDisplayed();
 	}
 	
-	public boolean isElementDisplay(WebDriver driver, String locator, String...values) {
+	public boolean isElementDisplayed(WebDriver driver, String locator, String...values) {
 		return getElement(driver, getDynamicLocator(locator, values)).isDisplayed();
 	}
 	
@@ -261,6 +268,10 @@ public class AbstractPage {
 	public void doubleClickToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.doubleClick(getElement(driver, locator)).perform();
+	}
+	public void doubleClickToElement(WebDriver driver, String locator, String...value) {
+		action = new Actions(driver);
+		action.doubleClick(getElement(driver, getDynamicLocator(locator, value))).perform();
 	}
 	
 	public void rightClickToElement(WebDriver driver, String locator) {
@@ -321,6 +332,10 @@ public class AbstractPage {
 
 	public void clickToElementByJS(WebDriver driver, String locator) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", getElement(driver, locator));
+	}
+	
+	public void clickToElementByJS(WebDriver driver, String locator, String...values) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", getElement(driver, getDynamicLocator(locator, values)));
 	}
 
 	public void scrollToElement(WebDriver driver, String locator) {

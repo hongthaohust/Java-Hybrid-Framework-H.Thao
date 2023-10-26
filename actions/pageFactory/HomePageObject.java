@@ -38,17 +38,17 @@ public class HomePageObject extends AbstractPage {
 	
 	public boolean isAccountLinkDisplayed() {
 		waitForElementVisible(driver, myAccountLink);
-		return isElementDisplay(driver, myAccountLink);
+		return isElementDisplayed(driver, myAccountLink);
 	}
 
 	public boolean isLoginLinkDisplayed() {
 		waitForElementVisible(driver, loginLink);
-		return isElementDisplay(driver, loginLink);
+		return isElementDisplayed(driver, loginLink);
 	}
 	
 	public boolean isLogoutLinkDisplayed() {
 		waitForElementVisible(driver, logoutLink);
-		return isElementDisplay(driver, logoutLink);
+		return isElementDisplayed(driver, logoutLink);
 	}
 
 	public void clickMyAccountLink() {

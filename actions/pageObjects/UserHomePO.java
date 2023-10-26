@@ -24,17 +24,17 @@ public class UserHomePO extends AbstractPage {
 
 	public boolean isAccountLinkDisplayed() {
 		waitForElementVisible(driver, UserHomePageUI.MY_ACCOUNT_LINK);
-		return isElementDisplay(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		return isElementDisplayed(driver, UserHomePageUI.MY_ACCOUNT_LINK);
 	}
 
 	public boolean isLoginLinkDisplayed() {
 		waitForElementVisible(driver, UserHomePageUI.LOGIN_LINK);
-		return isElementDisplay(driver, UserHomePageUI.LOGIN_LINK);
+		return isElementDisplayed(driver, UserHomePageUI.LOGIN_LINK);
 	}
 	
 	public boolean isLogoutLinkDisplayed() {
 		waitForElementVisible(driver, UserHomePageUI.LOGOUT_LINK);
-		return isElementDisplay(driver, UserHomePageUI.LOGOUT_LINK);
+		return isElementDisplayed(driver, UserHomePageUI.LOGOUT_LINK);
 	}
 
 	public UserCustomerInfoPO clickMyAccountLink() {

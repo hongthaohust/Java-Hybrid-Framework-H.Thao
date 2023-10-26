@@ -74,8 +74,8 @@ public class Level_02_Register_Login_User_02 extends AbstractPage {
 		
 		clickToElement(driver, "//button[text()='Log in']");
 		
-		Assert.assertTrue(isElementDisplay(driver, "//a[@class='ico-account']"));
-		Assert.assertTrue(isElementDisplay(driver, "//a[@class='ico-logout']"));
+		Assert.assertTrue(isElementDisplayed(driver, "//a[@class='ico-account']"));
+		Assert.assertTrue(isElementDisplayed(driver, "//a[@class='ico-logout']"));
 	}
   
 	

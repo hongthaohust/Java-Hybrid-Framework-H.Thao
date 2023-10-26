@@ -193,7 +193,7 @@ public class AbstractPage {
 //		}
 //	}
 	
-	public boolean isElementDisplay(WebDriver driver, WebElement element) {
+	public boolean isElementDisplayed(WebDriver driver, WebElement element) {
 		return element.isDisplayed();
 	}
 	
