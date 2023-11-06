@@ -463,7 +463,7 @@ public class AbstractPage {
 		clickToElement(driver, AbstractPageUI.MY_PRODUCT_REVIEW_LINK);
 		return PageGeneratorManager.getUserMyProductReviewPage(driver);
 	}
-
+	
 	public UserCustomerInfoPO openCustomerInfo(WebDriver driver) {
 		waitForElementVisible(driver, AbstractPageUI.CUSTOMER_INFO_LINK);
 		clickToElement(driver, AbstractPageUI.CUSTOMER_INFO_LINK);
@@ -544,7 +544,6 @@ public class AbstractPage {
 		waitForElementClickable(driver, AbstractPageUI.DYNAMIC_LINK, pageName);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, pageName);
 	}
-	
 	
 	public void sleepInSecond(long second) {
 		try {

@@ -33,7 +33,8 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		productPage = dashBoardPage.openProductPage();
 	}
 	
-	public void TC_01_Paging() {
+	
+	public void TC_01_Paging() {		
 		// Paging
 		productPage.goToPageByIndex("2");
 		Assert.assertTrue(productPage.isActivePageByIndex("2"));
@@ -50,6 +51,7 @@ public class Level_09_Web_Data_Table extends AbstractTest {
   
 	@Test
 	public void TC_02_Select_Deselect_All_Item() {
+		productPage.waitAjaxLoadingInvisible();
 		productPage.checkToSelectAllCheckbox();
 		Assert.assertTrue(productPage.areProductCheckboxChecked());
 		
@@ -57,14 +59,18 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		Assert.assertTrue(productPage.areProductCheckboxUnChecked());
 		
 		productPage.checkToProductCheckboxByName("Apple MacBook Pro 13-inch");
+		productPage.checkToProductCheckboxByName("Build your own computer");
+		productPage.checkToProductCheckboxByName("Adobe Photoshop CS4");
+		
 	}
 	
 	@Test
 	public void TC_03_Check_Display() {
+		productPage.openDashBoardPage();
 		
 	}
 
-	@Test
+	
 	public void TC_04_Edit() {
 	
 }

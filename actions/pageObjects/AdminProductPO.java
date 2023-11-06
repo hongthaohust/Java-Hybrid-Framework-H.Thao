@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import commons.AbstractPage;
+import commons.GlobalConstans;
+import pageUIs.AbstractPageUI;
 import pageUIs.AdminProductPageUI;
 
 public class AdminProductPO extends AbstractPage {
@@ -62,5 +64,17 @@ public class AdminProductPO extends AbstractPage {
 	public void checkToProductCheckboxByName(String productName) {
 		waitForElementClickable(driver, AdminProductPageUI.PRODUCT_CHECKBOX_BY_NAME, productName);
 		checkToCheckbox(driver, AdminProductPageUI.PRODUCT_CHECKBOX_BY_NAME, productName);
+	}
+
+	public AdminDashBoardPO openDashBoardPage() {
+		waitForElementClickable(driver, AbstractPageUI.MAIN_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_DASHBOARD);
+		clickToElement(driver, AbstractPageUI.MAIN_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_DASHBOARD);
+		
+		sleepInSecond(5);
+		return PageGeneratorManager.getAdminDashBoardPage(driver);
+	}
+
+	public void waitAjaxLoadingInvisible() {
+		waitForElementInvisible(driver, AdminProductPageUI.LOADING_ICON);
 	}
 }
