@@ -21,6 +21,8 @@ public class AdminDashBoardPO extends AbstractPage {
 		waitForElementClickable(driver, AbstractPageUI.SUB01_LINK_IN_SIDEBAR,GlobalConstans.ADMIN_MENU_CATALOG, GlobalConstans.ADMIN_MENU_PRODUCT);
 		clickToElement(driver, AbstractPageUI.SUB01_LINK_IN_SIDEBAR, GlobalConstans.ADMIN_MENU_CATALOG, GlobalConstans.ADMIN_MENU_PRODUCT);
 		
+		waitAjaxLoadingInvisible(driver);
+		
 		return PageGeneratorManager.getAdminProductPO(driver);
 	}
 }

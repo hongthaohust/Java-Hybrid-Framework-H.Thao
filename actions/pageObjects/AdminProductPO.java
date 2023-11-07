@@ -20,6 +20,7 @@ public class AdminProductPO extends AbstractPage {
 	public void goToPageByIndex(String indexPage) {
 		waitForElementClickable(driver, AdminProductPageUI.PAGING_NUMBER, indexPage);
 		clickToElement(driver, AdminProductPageUI.PAGING_NUMBER, indexPage);
+		waitAjaxLoadingInvisible(driver);
 	}
 
 	public boolean isActivePageByIndex(String indexPage) {
@@ -74,7 +75,36 @@ public class AdminProductPO extends AbstractPage {
 		return PageGeneratorManager.getAdminDashBoardPage(driver);
 	}
 
-	public void waitAjaxLoadingInvisible() {
-		waitForElementInvisible(driver, AdminProductPageUI.LOADING_ICON);
+	public boolean areProductDetailDisplayed(String productName, String skuID, String price, String quantity,
+			String publishStatus) {
+		waitForElementVisible(driver, AdminProductPageUI.PRODUCT_DETAIL_IN_TABLE, productName,skuID,price,quantity,publishStatus);
+		return isElementDisplayed(driver, AdminProductPageUI.PRODUCT_DETAIL_IN_TABLE, productName,skuID,price,quantity,publishStatus);
 	}
+
+	public void selectNumberItemDropdown(String itemNumber) {
+		waitForElementClickable(driver, AdminProductPageUI.SHOW_NUMBER_ITEM_DROPDOWN);
+		selectItemInDropdown(driver, AdminProductPageUI.SHOW_NUMBER_ITEM_DROPDOWN,itemNumber);
+		waitAjaxLoadingInvisible(driver);
+	}
+
+	public boolean isInfoDisplayedAtColumnNameAndRowNumber(String columnName, String rowIndex, String expectedValue) {
+		int columnIndex = countElementSize(driver, AdminProductPageUI.COLUMN_NAME_SIBLING,columnName) + 1;
+		String actualvalue = getText(driver, AdminProductPageUI.CELL_VALUE,rowIndex,String.valueOf(columnIndex));
+		return actualvalue.equals(expectedValue);
+	}
+
+	public boolean isPublishStatus(String columnName, String rowIndex, String publishStatus) {
+		int columnIndex = countElementSize(driver, AdminProductPageUI.COLUMN_NAME_SIBLING,columnName) + 1;
+		return isElementDisplayed(driver, AdminProductPageUI.PUBLISH_STATUS,rowIndex,String.valueOf(columnIndex),publishStatus);
+	}
+
+	public void clickToEditProductByName(String productName) {
+		waitForElementClickable(driver, AdminProductPageUI.EDIT_PRODUCT, productName);
+		clickToElement(driver, AdminProductPageUI.EDIT_PRODUCT, productName);
+		waitAjaxLoadingInvisible(driver);
+	}
+
+	
+
+	
 }

@@ -49,9 +49,8 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		Assert.assertTrue(productPage.isActivePageByIndex("1"));
 	}
   
-	@Test
+	
 	public void TC_02_Select_Deselect_All_Item() {
-		productPage.waitAjaxLoadingInvisible();
 		productPage.checkToSelectAllCheckbox();
 		Assert.assertTrue(productPage.areProductCheckboxChecked());
 		
@@ -63,17 +62,36 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		productPage.checkToProductCheckboxByName("Adobe Photoshop CS4");
 		
 	}
-	
-	@Test
-	public void TC_03_Check_Display() {
-		productPage.openDashBoardPage();
-		
-	}
 
 	
+	public void TC_03_Check_Display() {
+		Assert.assertTrue(productPage.areProductDetailDisplayed("Build your own computer","COMP_CUST","1208","10000","true"));
+		Assert.assertTrue(productPage.areProductDetailDisplayed("Lenovo IdeaCentre 600 All-in-One PC","LE_IC_600","500","10000","true"));		
+		productPage.selectNumberItemDropdown("100");
+		Assert.assertTrue(productPage.areProductDetailDisplayed("Vintage Style Engagement Ring","VS_ENG_RN","2100","10000","false"));
+	}
+
+	@Test
 	public void TC_04_Edit() {
+		productPage.clickToEditProductByName("Build your own computer");
+		productPage.backToPage(driver);
+		
+		productPage.clickToEditProductByName("Lenovo IdeaCentre 600 All-in-One PC");
+		productPage.backToPage(driver);
+		
+		productPage.clickToEditProductByName("Nikon D5500 DSLR - Black");
+		productPage.backToPage(driver);
+	}
 	
-}
+	
+	public void TC_05_Position() {
+		productPage.selectNumberItemDropdown("50");
+		Assert.assertTrue(productPage.isInfoDisplayedAtColumnNameAndRowNumber("Product name","2","Digital Storm VANQUISH 3 Custom Performance PC"));
+		Assert.assertTrue(productPage.isInfoDisplayedAtColumnNameAndRowNumber("SKU","3","LE_IC_600"));
+		Assert.assertTrue(productPage.isInfoDisplayedAtColumnNameAndRowNumber("Price","13",""));
+		Assert.assertTrue(productPage.isPublishStatus("Published","5","true"));
+		Assert.assertTrue(productPage.isPublishStatus("Published","5","true"));
+	}
 
 	@AfterClass (alwaysRun = true)
 	public void afterClass() {

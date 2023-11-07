@@ -199,6 +199,11 @@ public class AbstractPage {
 		return element.getText();
 	}
 	
+	public String getText(WebDriver driver, String locator, String...values) {
+		element = getElement(driver, getDynamicLocator(locator, values));
+		return element.getText();
+	}
+	
 	public String getCssValue(WebDriver driver, String locator, String propertyName) {
 		element = getElement(driver, locator);
 		return element.getCssValue(propertyName);
@@ -210,6 +215,10 @@ public class AbstractPage {
 	
 	public int countElementSize(WebDriver driver, String locator) {
 		return getElements(driver, locator).size();
+	}
+	
+	public int countElementSize(WebDriver driver, String locator, String...values) {
+		return getElements(driver, getDynamicLocator(locator, values)).size();
 	}
 	
 	public void checkToCheckbox(WebDriver driver, String locator) {
@@ -543,6 +552,10 @@ public class AbstractPage {
 	public void openMenubarLink02(WebDriver driver, String pageName) {
 		waitForElementClickable(driver, AbstractPageUI.DYNAMIC_LINK, pageName);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, pageName);
+	}
+	
+	public void waitAjaxLoadingInvisible(WebDriver driver) {
+		waitForElementInvisible(driver, AbstractPageUI.LOADING_ICON);
 	}
 	
 	public void sleepInSecond(long second) {
