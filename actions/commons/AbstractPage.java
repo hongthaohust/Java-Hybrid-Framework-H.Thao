@@ -15,16 +15,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjects.UserAddressesPO;
-import pageObjects.UserBackInStockSubsPO;
-import pageObjects.UserChangePasswordPO;
-import pageObjects.UserCustomerInfoPO;
-import pageObjects.UserDownloadableProductPO;
-import pageObjects.UserMyProductReviewPO;
-import pageObjects.UserOrdersPO;
-import pageObjects.PageGeneratorManager;
-import pageObjects.UserRewardPointsPO;
-import pageUIs.AbstractPageUI;
+import pageObjects.nopCommerce.PageGeneratorManager;
+import pageObjects.nopCommerce.UserAddressesPO;
+import pageObjects.nopCommerce.UserBackInStockSubsPO;
+import pageObjects.nopCommerce.UserChangePasswordPO;
+import pageObjects.nopCommerce.UserCustomerInfoPO;
+import pageObjects.nopCommerce.UserDownloadableProductPO;
+import pageObjects.nopCommerce.UserMyProductReviewPO;
+import pageObjects.nopCommerce.UserOrdersPO;
+import pageObjects.nopCommerce.UserRewardPointsPO;
+import pageUIs.nopCommerce.AbstractPageUI;
 
 public class AbstractPage {
 	public void openPageUrl(WebDriver driver, String url) {
@@ -121,9 +121,17 @@ public class AbstractPage {
 	public WebElement getElement(WebDriver driver, String locator) {
 		return driver.findElement(getByXpath(locator));
 	}
+	
+	public WebElement getElement(WebDriver driver, String locator, String...values) {
+		return driver.findElement(getByXpath(getDynamicLocator(locator, values)));
+	}
 
 	public List<WebElement> getElements(WebDriver driver, String locator) {
 		return driver.findElements(getByXpath(locator));
+	}
+	
+	public List<WebElement> getElements(WebDriver driver, String locator, String... values) {
+		return driver.findElements(getByXpath(getDynamicLocator(locator, values)));
 	}
 
 	public void clickToElement(WebDriver driver, String locator) {

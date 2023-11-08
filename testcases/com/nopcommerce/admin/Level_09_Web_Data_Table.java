@@ -3,13 +3,15 @@ package com.nopcommerce.admin;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import pageObjects.AdminDashBoardPO;
-import pageObjects.AdminLoginPO;
-import pageObjects.AdminProductPO;
-import pageObjects.PageGeneratorManager;
+import pageObjects.nopCommerce.AdminDashBoardPO;
+import pageObjects.nopCommerce.AdminLoginPO;
+import pageObjects.nopCommerce.AdminProductPO;
+import pageObjects.nopCommerce.PageGeneratorManager;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -71,7 +73,7 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		Assert.assertTrue(productPage.areProductDetailDisplayed("Vintage Style Engagement Ring","VS_ENG_RN","2100","10000","false"));
 	}
 
-	@Test
+	
 	public void TC_04_Edit() {
 		productPage.clickToEditProductByName("Build your own computer");
 		productPage.backToPage(driver);
@@ -91,6 +93,11 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		Assert.assertTrue(productPage.isInfoDisplayedAtColumnNameAndRowNumber("Price","13",""));
 		Assert.assertTrue(productPage.isPublishStatus("Published","5","true"));
 		Assert.assertTrue(productPage.isPublishStatus("Published","5","true"));
+	}
+	
+	@Test
+	public void TC_06_GetAllValue() {
+		System.out.println(productPage.getAllValueByColumnName("Product name"));
 	}
 
 	@AfterClass (alwaysRun = true)
