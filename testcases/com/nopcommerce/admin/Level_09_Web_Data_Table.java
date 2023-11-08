@@ -11,8 +11,6 @@ import pageObjects.nopCommerce.PageGeneratorManager;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -35,7 +33,7 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		productPage = dashBoardPage.openProductPage();
 	}
 	
-	
+	@Test
 	public void TC_01_Paging() {		
 		// Paging
 		productPage.goToPageByIndex("2");
@@ -95,7 +93,7 @@ public class Level_09_Web_Data_Table extends AbstractTest {
 		Assert.assertTrue(productPage.isPublishStatus("Published","5","true"));
 	}
 	
-	@Test
+	
 	public void TC_06_GetAllValue() {
 		System.out.println(productPage.getAllValueByColumnName("Product name"));
 	}

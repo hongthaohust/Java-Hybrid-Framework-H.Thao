@@ -12,7 +12,6 @@ public class AdminProductPageUI {
 	public static final String CELL_VALUE = "//tr[%s]/td[%s]";
 	public static final String PUBLISH_STATUS = "//tr[%s]/td[%s]/i[contains(@class,'%s-icon')]";
 	public static final String EDIT_PRODUCT = "//td[text()='%s']/following-sibling::td/a";
-	public static final String ALL_PAGE_LINK = "//ul[@class='pagination']/li";
-	public static final String ALL_PAGE_LINK_INDEX = "//ul[@class='pagination']/li[%s]";
+	public static final String ALL_PAGE_LINK = "//ul[@class='pagination']//a[text()!='']";
 	public static final String ALL_VALUES_BY_COLUMN_INDEX = "//tr/td[%s]";
 }

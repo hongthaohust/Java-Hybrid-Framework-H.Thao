@@ -106,23 +106,17 @@ public class AdminProductPO extends AbstractPage {
 	}
 
 	
-	@SuppressWarnings("null")
+	
+	// Hàm này đang có lỗi khi click tại page mới thì load lại trang nên element bị thay đổi trong DOM
 	public List<String> getAllValueByColumnName(String columnName) {
 		List<String> allValues = new ArrayList<String>();
-		List<WebElement> allPageLinks = null;
 		
-		// Lấy tất cả các page
-		int pageSize = countElementSize(driver, AdminProductPageUI.ALL_PAGE_LINK);
-		for(int i = 2; i < pageSize; i++) {
-			allPageLinks.add(getElement(driver, AdminProductPageUI.ALL_PAGE_LINK_INDEX,String.valueOf(i)));
-			System.out.println("gán thành công");
-		}
+		List<WebElement> allPageLinks = getElements(driver, AdminProductPageUI.ALL_PAGE_LINK);
 		
 		int columnIndex = countElementSize(driver, AdminProductPageUI.COLUMN_NAME_SIBLING, columnName) + 1;
 		
 		for(WebElement pageLink : allPageLinks) {
 			pageLink.click();
-			waitAjaxLoadingInvisible(driver);
 			List<WebElement> allRowValues = getElements(driver, AdminProductPageUI.ALL_VALUES_BY_COLUMN_INDEX, String.valueOf(columnIndex));
 			
 			for(WebElement rowValue : allRowValues) {
