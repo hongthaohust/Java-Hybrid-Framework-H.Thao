@@ -86,7 +86,7 @@ public class AbstractTest {
 	}
 	
 	
-	public int random() {
+	public static int random() {
 		Random rand = new Random();
 		return rand.nextInt(999999);
 	}

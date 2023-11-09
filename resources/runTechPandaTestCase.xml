@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Selenium WebDriver API">
   
+<!-- 
   <test name="Run on FIREFOX UI">
-  <parameter name="browser" value ="firefox_ui" />
+  <parameter name="browser" value ="firefox_ui" /> 
   <parameter name="url" value = "http://live.techpanda.org/" />
     <classes>
-      <class name="com.liveTechpanda.user.Level_09_WebDataTable"/>
+      <class name="com.liveTechpanda.user.Level_09_WebDataTable_User"/>
     </classes>
   </test>
-  <test name="Run on FIREFOX UI">
+ -->
+  
+
+  
+ <test name="Run on FIREFOX UI">
   <parameter name="browser" value ="firefox_ui" />
   <parameter name="url" value = "http://live.techpanda.org/index.php/backendlogin" />
     <classes>
-      <class name="com.liveTechpanda.admin.Level_09_WebDataTable"/>
+      <class name="com.liveTechpanda.admin.Level_09_WebDataTable_Admin"/>
     </classes>
   </test>
+ 
    
 </suite>
