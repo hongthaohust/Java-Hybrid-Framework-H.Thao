@@ -2,6 +2,8 @@ package com.liveTechpanda.admin;
 
 import org.testng.annotations.Test;
 
+import com.liveTechpanda.user_data.User_Infomation_Register;
+
 import commons.AbstractTest;
 import pageObjects.liveTechpanda.AdminHomePO;
 import pageObjects.liveTechpanda.AdminLoginPO;
@@ -30,8 +32,10 @@ public class Level_09_WebDataTable_Admin extends AbstractTest {
 		homePage = loginPage.loginToSystem(username,password);
 		homePage.clickClosePopup();
 		
-		
-		
+		homePage.isInfoDisplayedAtColumnNameAndRowNumber("Name", "1", User_Infomation_Register.FIRST_NAME);
+		homePage.isInfoDisplayedAtColumnNameAndRowNumber("Name", "1", User_Infomation_Register.LAST_NAME);
+		homePage.isInfoDisplayedAtColumnNameAndRowNumber("Name", "1", User_Infomation_Register.MIDDLE_NAME);
+		homePage.isInfoDisplayedAtColumnNameAndRowNumber("Email", "1", User_Infomation_Register.EMAIL);	
 	}
 
 	@AfterClass (alwaysRun = true)
