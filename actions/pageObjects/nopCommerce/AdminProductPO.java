@@ -131,10 +131,10 @@ public class AdminProductPO extends AbstractPage {
 		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
 		waitProcessingBarInvisible(driver,image_path);
 	}
-//	public void AddProductPictureMultiple(String image_path) {
-//		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
-//		waitProcessingBarInvisible(driver,image_path);
-//	}
+	public void AddProductPictureMultiple(String image_path) {
+		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
+		waitProcessingBarInvisible(driver,image_path);
+	}
 	public void VerifyPictureUploadedInEditPage(String image_path) {
 		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
 		waitProcessingBarInvisible(driver,image_path);
