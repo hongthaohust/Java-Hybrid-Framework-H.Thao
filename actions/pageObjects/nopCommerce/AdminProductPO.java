@@ -106,8 +106,7 @@ public class AdminProductPO extends AbstractPage {
 	}
 
 	
-	
-	// Hàm này đang có lỗi khi click tại page mới thì load lại trang nên element bị thay đổi trong DOM
+	// Hàm lấy dữ liệu này đang có lỗi khi click tại page mới thì load lại trang nên element bị thay đổi trong DOM
 	public List<String> getAllValueByColumnName(String columnName) {
 		List<String> allValues = new ArrayList<String>();
 		
@@ -126,8 +125,48 @@ public class AdminProductPO extends AbstractPage {
 		
 		return allValues;
 	}
-
 	
-
 	
+	public void AddProductPicture(String image_path) {
+		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
+		waitProcessingBarInvisible(driver,image_path);
+	}
+//	public void AddProductPictureMultiple(String image_path) {
+//		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
+//		waitProcessingBarInvisible(driver,image_path);
+//	}
+	public void VerifyPictureUploadedInEditPage(String image_path) {
+		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
+		waitProcessingBarInvisible(driver,image_path);
+	}
+	public void VerifyPictureUploadedInProductPage(String image_path) {
+		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
+		waitProcessingBarInvisible(driver,image_path);
+	}
+
+	public void isFileUploadedInEditPage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void clickToSectionMultimedia() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void clickSaveButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void isFileUploadInProductPage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteImage() {
+		// TODO Auto-generated method stub
+		
+	}
+		
 }

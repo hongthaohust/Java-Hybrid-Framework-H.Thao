@@ -17,6 +17,10 @@ public class AbstractTest {
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	
+	String path = projectPath + "\\uploadFiles\\";
+	String[] imageName = {"med247_01.jpg", "med247_02.jpg", "mypicture_01.jpg"};
+	String[] imagePath = {path+"med247_01.jpg", path + "med247_02.jpg", path + "mypicture_01.jpg"};
+	
 	protected WebDriver getBrowserDriver(String browserName) {
 		Browser browser = Browser.valueOf(browserName.toUpperCase());
 		if(browser == Browser.FIREFOX_UI) {

@@ -565,6 +565,9 @@ public class AbstractPage {
 	public void waitAjaxLoadingInvisible(WebDriver driver) {
 		waitForElementInvisible(driver, AbstractPageUI.LOADING_ICON);
 	}
+	public void waitProcessingBarInvisible(WebDriver driver, String imageName) {
+		waitForElementInvisible(driver, AbstractPageUI.PROCESSING_BAR, imageName);
+	}
 	
 	public void sleepInSecond(long second) {
 		try {

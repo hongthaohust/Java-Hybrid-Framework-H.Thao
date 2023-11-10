@@ -18,5 +18,6 @@ public class AbstractPageUI {
 	public static final String SUB02_LINK_IN_SIDEBAR = "//div[@class='os-padding']//ul[@role='menu']/li[%s]/ul/li[%s]/ul/li[%s]";
 	
 	public static final String LOADING_ICON = "//div[@id='ajaxBusy']";	
+	public static final String PROCESSING_BAR = "//span[@title='%s']/preceding-sibling::div";
 	
 }

@@ -14,4 +14,5 @@ public class AdminProductPageUI {
 	public static final String EDIT_PRODUCT = "//td[text()='%s']/following-sibling::td/a";
 	public static final String ALL_PAGE_LINK = "//ul[@class='pagination']//a[text()!='']";
 	public static final String ALL_VALUES_BY_COLUMN_INDEX = "//tr/td[%s]";
+	public static final String UPLOAD_FILE_BUTTON = "//div[@id='product-multimedia']//input[@type='file']";
 }
