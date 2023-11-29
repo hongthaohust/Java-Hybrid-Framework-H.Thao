@@ -15,4 +15,5 @@ public class AdminProductPageUI {
 	public static final String ALL_PAGE_LINK = "//ul[@class='pagination']//a[text()!='']";
 	public static final String ALL_VALUES_BY_COLUMN_INDEX = "//tr/td[%s]";
 	public static final String UPLOAD_FILE_BUTTON = "//div[@id='product-multimedia']//input[@type='file']";
+	public static final String UPLOAD_FILE_TITLE = "//span[@title='%s']";
 }

@@ -131,10 +131,10 @@ public class AdminProductPO extends AbstractPage {
 		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
 		waitProcessingBarInvisible(driver,image_path);
 	}
-	public void AddProductPictureMultiple(String image_path) {
-		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
-		waitProcessingBarInvisible(driver,image_path);
-	}
+//	public void AddProductPictureMultiple(String image_path) {
+//		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
+//		waitProcessingBarInvisible(driver,image_path);
+//	}
 	public void VerifyPictureUploadedInEditPage(String image_path) {
 		sendkeyToElement(driver, AdminProductPageUI.UPLOAD_FILE_BUTTON, image_path);
 		waitProcessingBarInvisible(driver,image_path);
@@ -144,9 +144,9 @@ public class AdminProductPO extends AbstractPage {
 		waitProcessingBarInvisible(driver,image_path);
 	}
 
-	public void isFileUploadedInEditPage(String string) {
-		// TODO Auto-generated method stub
-		
+	public boolean isFileUploadedInEditPage(String fileName) {
+		waitForElementVisible(driver, AdminProductPageUI.UPLOAD_FILE_TITLE, fileName);
+		return isElementDisplayed(driver, AdminProductPageUI.UPLOAD_FILE_TITLE, fileName);
 	}
 
 	public void clickToSectionMultimedia() {
@@ -165,6 +165,11 @@ public class AdminProductPO extends AbstractPage {
 	}
 
 	public void deleteImage() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void isDeletedFileSuccess(String string) {
 		// TODO Auto-generated method stub
 		
 	}

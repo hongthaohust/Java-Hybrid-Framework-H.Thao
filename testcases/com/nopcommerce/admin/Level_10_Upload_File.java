@@ -38,7 +38,7 @@ public class Level_10_Upload_File extends AbstractTest {
 		productPage.clickToEditProductByName("Build your own computer");
 		
 		// Click vào section Multimedia
-		productPage.clickToSectionMultimedia();
+		//productPage.clickToSectionMultimedia();
 		
 		// Upload 1 file ảnh
 		productPage.AddProductPicture("");
@@ -64,6 +64,7 @@ public class Level_10_Upload_File extends AbstractTest {
 		productPage.clickSaveButton();
 		
 		// verify lại ảnh đã bị xóa
+		productPage.isDeletedFileSuccess("");
 		
 	}
 	
