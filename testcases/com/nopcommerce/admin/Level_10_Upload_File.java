@@ -32,6 +32,7 @@ public class Level_10_Upload_File extends AbstractTest {
 		productPage = dashBoardPage.openProductPage();
 	}
 	
+	
 	@Test
 	public void TC_01_Upload_1_File() {		
 		// Vào trang edit product
